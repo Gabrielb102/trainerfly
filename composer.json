@@ -1,0 +1,17 @@
+{
+    "name": "fresco/trainerfly",
+    "description": "Two sided marketplace for trainers and potential pupils to find eachother.",
+    "type": "project",
+    "license": "Proprietary",
+    "autoload": {
+        "psr-4": {
+            "Fresco\\Trainerfly\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel Burgos"
+        }
+    ],
+    "require": {}
+}

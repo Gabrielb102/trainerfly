@@ -1,0 +1,74 @@
+# JetBrains IDEs
+.idea/
+*.iml
+
+.nuxt
+
+# Node modules
+node_modules/
+*/node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# PHPStorm
+.phpstorm.meta.php
+
+# Composer
+/vendor/
+composer.lock
+
+# WordPress
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/
+wp-content/backups/
+wp-content/mu-plugins/
+
+# Logs
+*.log
+
+# Cursor
+.cursor/
+
+# Other
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+*.orig
+*.save
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.pid
+*.seed
+*.log
+*.log.*
+*.out
+*.out.*
+*.err
+*.err.*
+*.rej
+*.rej.*
+*.diff
+*.diff.*
+*.patch
+*.patch.*
+*.orig
+*.orig.*
+*.rej
+*.rej.*
+*.diff
+*.diff.*
+*.patch
+*.patch.*
+*.orig
+*.orig.*
