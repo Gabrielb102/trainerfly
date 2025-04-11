@@ -28,3 +28,7 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Nuxt UI
+auto-imports.d.ts
+components.d.ts

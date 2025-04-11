@@ -6,7 +6,7 @@ class ScriptLoader
 {
     public static function loadFrontendScripts($main_plugin_dir): void
     {
-        $nuxt_output_dir = $main_plugin_dir . '/nuxt/.output/public/_nuxt';
+        $nuxt_output_dir = $main_plugin_dir . '/frontend/dist/assets';
 
         // Enqueue all .js files
         foreach (glob($nuxt_output_dir . '/*.js') as $js_file) {
@@ -14,11 +14,11 @@ class ScriptLoader
             // Get the relative path and URL
             $relative_path = str_replace($main_plugin_dir, 'trainerfly/', $js_file);
             $file_url = plugins_url($relative_path, $main_plugin_dir);
-            $version = filemtime($js_file); // Use file modification time as version
             $handle = basename($js_file, '.js');
 
             // Enqueue the script
-            wp_enqueue_script($handle, $file_url, array(), $version, true);
+            wp_enqueue_script($handle, $file_url, array(), null, true);
+            error_log("Enqueued script: $handle with URL: $file_url");
             wp_localize_script($handle, 'localized', array(
                 'baseURL' => rest_url('tf/v1/'),
                 'nonce' => wp_create_nonce('wp_rest'),
@@ -35,7 +35,7 @@ class ScriptLoader
 
         // Enqueue all .css files
         foreach (glob($nuxt_output_dir . '/*.css') as $css_file) {
-            $relative_path = str_replace($main_plugin_dir, '', $css_file);
+            $relative_path = str_replace($main_plugin_dir, 'trainerfly/', $css_file);
             $file_url = plugins_url($relative_path, $main_plugin_dir);
             $version = filemtime($css_file); // Use file modification time as version
             wp_enqueue_style(basename($css_file, '.css'), $file_url, array(), $version);
@@ -45,10 +45,6 @@ class ScriptLoader
     public static function registerHooks($main_plugin_dir): void
     {
         add_action('wp_enqueue_scripts', function () use ($main_plugin_dir) {
-            self::loadFrontendScripts($main_plugin_dir);
-        });
-
-        add_action('admin_enqueue_scripts', function () use ($main_plugin_dir) {
             self::loadFrontendScripts($main_plugin_dir);
         });
     }
