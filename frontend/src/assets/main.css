@@ -1,3 +1,16 @@
-@import './base.css';
-@import "tailwindcss";
+@import 'tailwindcss';
 @import '@nuxt/ui';
+
+
+/* Why set here?
+ * Cannot set theme primary color to black in ui theme config
+ * It must be set here instead.
+ * This is due to black not having shades.
+ */
+:root {
+  --ui-primary: black;
+}
+
+.dark {
+  --ui-primary: white;
+}

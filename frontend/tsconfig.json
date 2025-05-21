@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    // ES6 Target
+    "target": "ES2015",        // This specifies ES6 (same as "ES2015")
+    
+    // Module System
+    "module": "ESNext",        // For modern module syntax
+    
+    // Browser Environment
+    "lib": [
+      "ES2015",               // ES6 library
+      "DOM",                  // Browser DOM API
+      "DOM.Iterable"          // For iterating over DOM collections
+    ],
+    
+    // Modern JS Features
+    "useDefineForClassFields": true,
+    
+    // Module Resolution
+    "moduleResolution": "bundler", // For use with bundlers like Vite
+    "esModuleInterop": true,      // Simplifies imports from non-ES modules
+    
+    // Project Settings
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,           // Let Vite handle the build
+    "jsx": "preserve",        // For Vue JSX support
+
+    /* Vue specific */
+    "jsxImportSource": "vue",
+    "types": ["vite/client", "vue", "node"],
+
+    // Type Checking
+    "strict": true,
+    
+    // Path Aliases (for @/ imports)
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    "src/**/*.vue",
+    "src/**/*.js",
+  ]
+}

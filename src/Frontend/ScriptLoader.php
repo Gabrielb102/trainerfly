@@ -22,6 +22,7 @@ class ScriptLoader
             wp_localize_script($handle, 'localized', array(
                 'baseURL' => rest_url('tf/v1/'),
                 'nonce' => wp_create_nonce('wp_rest'),
+                'mapboxAPIKey' => 'pk.eyJ1Ijoid2F4ZWQtbGVvcGFyZHMiLCJhIjoiY205eG9hZGJ6MHMyYjJqcHBsYmtlcjZhNSJ9.38V_X1HWjTriDm7CJC2yOA'
             ));
             
             // Force type="module" attribute
