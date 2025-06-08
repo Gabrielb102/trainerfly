@@ -20,7 +20,7 @@ class ScriptLoader
             wp_enqueue_script($handle, $file_url, array(), null, true);
             error_log("Enqueued script: $handle with URL: $file_url");
             wp_localize_script($handle, 'localized', array(
-                'baseURL' => rest_url('tf/v1/'),
+                'baseURL' => rest_url('trainerfly/v1/'),
                 'nonce' => wp_create_nonce('wp_rest'),
                 'mapboxAPIKey' => 'pk.eyJ1Ijoid2F4ZWQtbGVvcGFyZHMiLCJhIjoiY205eG9hZGJ6MHMyYjJqcHBsYmtlcjZhNSJ9.38V_X1HWjTriDm7CJC2yOA'
             ));

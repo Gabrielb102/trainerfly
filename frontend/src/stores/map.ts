@@ -1,8 +1,8 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { MapboxFeature} from '@/types/map/MapboxFeatures'
+import { MapboxFeature} from '@/types/map/mapbox-types'
 
-export const useMapStore = defineStore('counter', () => {
+export const useMapStore = defineStore('map', () => {
 
   const defaultLocation: MapboxFeature = {
     type: "Feature",

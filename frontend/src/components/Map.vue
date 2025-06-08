@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { useMapStore } from '@/stores/map'
+import { useListingStore } from '@/stores/listing'
 import { useMap } from '@indoorequal/vue-maplibre-gl'
+import { useListings } from '@/composables/useListings'
 import { type LngLatLike } from 'maplibre-gl'
-import { type MapboxFeature } from '@/types/map/MapboxFeatures'
+import { type MapboxFeature } from '@/types/map/mapbox-types'
 import { type MapInstance } from '@indoorequal/vue-maplibre-gl'
 import FreeDrawer from '@/components/FreeDrawer.vue'
 
@@ -13,6 +15,30 @@ const location = computed<MapboxFeature>(() => mapStore.location)
 
 type FreeDrawerType = InstanceType<typeof FreeDrawer>
 const drawerRef = ref<FreeDrawerType>()
+
+// <editor-fold desc="Fly to Location">---------------------------------------
+
+// Helper function for fallback to coordinates
+const fitToCoordinates = (location: MapboxFeature) => {
+  if (!map.map || !location?.properties?.coordinates) return
+
+  const { longitude, latitude } = location.properties.coordinates
+  if (longitude !== null && latitude !== null) {
+    map.map.flyTo({
+      center: [longitude, latitude],
+      zoom: 10,
+      speed: 1.5,
+      curve: 1
+    })
+
+    // Only show options after map animation completes
+    setTimeout(() => {
+      if (drawerRef.value) {
+        drawerRef.value.isOpen = true
+      }
+    }, 1000)
+  }
+}
 
 watch(() => location.value, (newLocation: MapboxFeature) => {
 
@@ -57,27 +83,22 @@ watch(() => location.value, (newLocation: MapboxFeature) => {
   }
 })
 
-// Helper function for fallback to coordinates
-const fitToCoordinates = (location: MapboxFeature) => {
-  if (!map.map || !location?.properties?.coordinates) return
+// </editor-fold>-------------------------------------------------------------
 
-  const { longitude, latitude } = location.properties.coordinates
-  if (longitude !== null && latitude !== null) {
-    map.map.flyTo({
-      center: [longitude, latitude],
-      zoom: 10,
-      speed: 1.5,
-      curve: 1
-    })
+// <editor-fold desc="Listings">----------------------------------------------
 
-    // Only show options after map animation completes
-    setTimeout(() => {
-      if (drawerRef.value) {
-        drawerRef.value.isOpen = true
-      }
-    }, 1000)
-  }
-}
+const listingStore = useListingStore()
+const listings = computed(() => listingStore.listings)
+const { addMarkersToMap } = useListings()
+
+watch(() => listings.value, (newListings) => {
+  // Place markers on the map for each listing
+  if (!map.map) return
+  addMarkersToMap(map.map, newListings)
+
+})
+
+// </editor-fold>-------------------------------------------------------------
 
 </script>
 

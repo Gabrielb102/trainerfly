@@ -6,10 +6,10 @@ const { query, suggestions, retrieve, preventSuggestions, selectedSuggestion } =
 
 // Function to handle the selection of a suggestion
 const selectSuggestion = async (suggestion) => {
-  // First prevent any suggestions from appearing
+  // First, prevent any suggestions from appearing
   preventSuggestions()
 
-  // Then update selected suggestion and query
+  // Then update the selected suggestion and query
   selectedSuggestion.value = suggestion
   query.value = suggestion.name
 }
@@ -19,16 +19,17 @@ const search = () => {
   retrieve(selectedSuggestion.value)
 }
 
-// Function to handle the enter keyboard shortcut
+// Function to handle the 'enter' keyboard shortcut
 const onEnter = async () => {
   if (suggestions.value && suggestions.value.length > 0) {
     await selectSuggestion(suggestions.value[0])
-    retrieve(selectedSuggestion.value)
+    await retrieve(selectedSuggestion.value)
   }
 }
 </script>
 
 <template>
+  <!--Goes within the Header component slot -->
   <div class="flex flex-col gap-2 justify-end h-full items-center">
     <div class="flex gap-2 justify-center items-center relative">
       <label for="location-search-field" class="uppercase font-bold">Location: </label>

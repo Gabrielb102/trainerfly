@@ -50,7 +50,7 @@ export interface SuggestionContext {
 
 /* ----------  Top-level Suggestion object -------------------------- */
 
-export interface SearchSuggestion {
+export interface SearchTypes {
   /* required ------------------------------------------------------- */
   name:         string;
   mapbox_id:    string;

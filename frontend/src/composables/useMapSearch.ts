@@ -1,35 +1,40 @@
 import { ref, watch } from 'vue'
-import { useMapStore } from '@/stores/map.js'
+import { useListings } from '@/composables/useListings'
+import { useMapStore } from '@/stores/map'
 import { v4 as uuid } from 'uuid'
 import axios, { type AxiosResponse } from 'axios'
-import { SearchSuggestion } from '@/types/map/SearchSuggestion'
-import { MapboxFeatureCollection } from '@/types/map/MapboxFeatures'
+import { SearchTypes } from '@/types/map/search-types'
+import { MapboxFeatureCollection, MapboxFeature } from '@/types/map/mapbox-types'
 
+// <editor-fold desc="Mapbox API Configuration">---------------------------------
 
 const MAPBOX_API_KEY: string = localized.mapboxAPIKey
 const mapboxBaseURL: string = 'https://api.mapbox.com/'
-const searchAPIURL: string = 'search/searchbox/v1/'
+const searchAPIEndpoint: string = 'search/searchbox/v1/'
+
+// </editor-fold>-----------------------------------------------------------------
 
 export function useMapSearch(suggestDelay: number = 500) {
 
   const sessionToken = ref<string>(uuid())
+  const { getListingsByLocation } = useListings()
   const mapStore = useMapStore()
 
   // <editor-fold desc="Search Suggestions">------------------------------------------
 
   const query = ref<string>('')
-  const suggestions = ref<Array<SearchSuggestion>>([])
+  const suggestions = ref<Array<SearchTypes>>([])
   const selectedSuggestion = ref({})
 
   // <editor-fold desc="Functions">------------------------------------------
 
   // Gets a certain type of Search Suggestion from api
-  const getSuggestions = async (query: string, limit: number = 3, types: Array<string> = ['postcode', 'district', 'place', 'city', 'locality', 'neighborhood', 'address', 'poi']): Promise<Array<SearchSuggestion>> => {
+  const getSuggestions = async (query: string, limit: number = 3, types: Array<string> = ['postcode', 'district', 'place', 'city', 'locality', 'neighborhood', 'address', 'poi']): Promise<Array<SearchTypes>> => {
 
     const typesString = types.join(', ')
 
     try {
-      const response = await axios.get(mapboxBaseURL + searchAPIURL + 'suggest', {
+      const response = await axios.get(mapboxBaseURL + searchAPIEndpoint + 'suggest', {
         params: {
           access_token: MAPBOX_API_KEY,
           session_token: sessionToken.value,
@@ -51,14 +56,14 @@ export function useMapSearch(suggestDelay: number = 500) {
   }
 
   // Gets all suggestions for the current query
-  const suggest = async (query: string): Promise<Array<SearchSuggestion>> => {
+  const suggest = async (query: string): Promise<Array<SearchTypes>> => {
 
     // Get multiple types of suggestions
     const broadSuggestions = await getSuggestions(query, 3, ['city', 'locality', 'neighborhood', 'district'])
     const specificSuggestions = await getSuggestions(query, 3, ['address', 'poi'])
 
     // Combine the suggestions
-    let suggestions: Array<SearchSuggestion> = [...broadSuggestions, ...specificSuggestions]
+    let suggestions: Array<SearchTypes> = [...broadSuggestions, ...specificSuggestions]
 
     /* Remove duplicates
      * The set is made by comparing mapbox_ids - there are no normal ids on the suggestion results
@@ -66,12 +71,12 @@ export function useMapSearch(suggestDelay: number = 500) {
      */
 
     // Create a set of unique mapbox_ids
-    const uniqueIds = Array.from(new Set(suggestions.map((s: SearchSuggestion) => s.mapbox_id)))
+    const uniqueIds = Array.from(new Set(suggestions.map((s: SearchTypes) => s.mapbox_id)))
 
     // Map each id to its corresponding suggestion, filtering out any undefined values
     suggestions = uniqueIds
       .map((setElement: string) => suggestions.find(s => s.mapbox_id === setElement))
-      .filter((suggestion): suggestion is SearchSuggestion => suggestion !== undefined)
+      .filter((suggestion): suggestion is SearchTypes => suggestion !== undefined)
 
     // Sort by order of priority
     const priorityOrder: Array<string> = ['city', 'district', 'postcode', 'locality', 'neighborhood', 'poi', 'address']
@@ -84,7 +89,7 @@ export function useMapSearch(suggestDelay: number = 500) {
 
   // </editor-fold>-----------------------------------------------------------
 
-  let searchTimeout: number | null = null // In browser, this is a number, in node it is a Node.js Timeout object
+  let searchTimeout: NodeJS.Timeout | null = null // In browser, this is a number, in node it is a Node.js Timeout object
 
   // flag to track if suggestions should be suppressed
   const suppressSuggestions = ref(false)
@@ -126,7 +131,7 @@ export function useMapSearch(suggestDelay: number = 500) {
   // </editor-fold>-------------------------------------------------------------------
 
   // Retrieves the selected suggestion
-  const retrieve = async (selection: SearchSuggestion): Promise<any> => {
+  const retrieve = async (selection: SearchTypes): Promise<any> => {
 
     // Gatekeeper
     if (!selection) {
@@ -144,23 +149,35 @@ export function useMapSearch(suggestDelay: number = 500) {
     }
 
     // Make a request to retrieve the selection
-    const response: AxiosResponse<MapboxFeatureCollection> = await axios.get(mapboxBaseURL + searchAPIURL + 'retrieve' + '/' + selection.mapbox_id, {
+    const response: AxiosResponse<MapboxFeatureCollection> = await axios.get(
+      mapboxBaseURL + searchAPIEndpoint + 'retrieve' + '/' + selection.mapbox_id,
+      {
       params: {
         access_token: MAPBOX_API_KEY,
         session_token: sessionToken.value
       }
     })
+
     sessionToken.value = uuid()
 
     if (response?.data?.features && response.data.features.length > 0) {
-      // set the location in the store
-      const newLocation = response.data.features[0]
 
-      console.log("Setting location in store:", newLocation);
+      // Get the new location from the response
+      const newLocation: MapboxFeature  = response.data.features[0] as MapboxFeature
+
+      // Assign the new location to the store
       mapStore.location = newLocation
+
+      // Use the new location to get listings
+      await getListingsByLocation(newLocation)
+
+      // Return the new location
       return newLocation
+
     } else {
+
       console.error('Invalid response data:', response?.data)
+
       return null
     }
   }
