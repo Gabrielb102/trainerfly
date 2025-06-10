@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
+@import url('/fonts.css');
 
 
 /* Why set here?
@@ -14,3 +15,9 @@
 .dark {
   --ui-primary: white;
 }
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+}
+
+

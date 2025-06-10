@@ -34,9 +34,9 @@ const getBaseClass = (): string => {
   let baseClass = 'absolute top-0 bottom-0 transition-transform duration-300 ease-in-out z-100 bg-white shadow-lg'
 
   if (props.direction === 'left' || props.direction === 'right' || !props.direction) {
-    baseClass += ' h-full w-60 min-w-40'
+    baseClass += ' h-full w-80 min-w-40'
   } else if (props.direction === 'top' || props.direction === 'bottom') {
-    baseClass += ' w-full h-30 min-h-20'
+    baseClass += ' w-full h-40 min-h-20'
   }
 
   if (props.direction === 'left' || !props.direction) {

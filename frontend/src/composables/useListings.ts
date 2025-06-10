@@ -1,10 +1,10 @@
-import { useListingStore} from "@/stores/listing";
+import {useListingStore} from "@/stores/listing";
 import {useAPI} from "@/composables/useAPI";
 import {AxiosResponse} from "axios";
 import {MapboxFeature} from "@/types/map/mapbox-types";
 import {Listing} from "@/types/hivepress/listing-types";
-import { Marker } from 'maplibre-gl'
-import type { Map } from 'maplibre-gl'
+import type {Map} from 'maplibre-gl'
+import {Marker} from 'maplibre-gl'
 import mapMarkerIcon from '@/assets/images/map-marker.svg'
 
 const makeMarkerElement = () => {
@@ -24,7 +24,7 @@ const makeMarkerElement = () => {
 export function useListings() {
 
   const listingStore = useListingStore()
-  const { get } = useAPI()
+  const {get} = useAPI()
 
   const getListingsByLocation = async (newLocation: MapboxFeature): Promise<Array<Listing>> => {
     const latitude: number = newLocation.geometry.coordinates[1]

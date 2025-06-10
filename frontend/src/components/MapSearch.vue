@@ -32,7 +32,7 @@ const onEnter = async () => {
   <!--Goes within the Header component slot -->
   <div class="flex flex-col gap-2 justify-end h-full items-center">
     <div class="flex gap-2 justify-center items-center relative">
-      <label for="location-search-field" class="uppercase font-bold">Location: </label>
+      <label for="location-search-field" class="uppercase font-extrabold">Location: </label>
       <div class="relative w-64">
         <UInput v-model="query" id="location-search-field" placeholder="Search across the nation"
                 variant="soft" color="neutral" class="w-full" @keyup.enter="onEnter" />
