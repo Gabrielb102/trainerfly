@@ -5,6 +5,11 @@ import {Listing} from '@/types/hivepress/listing-types'
 
 const listingStore = useListingStore()
 const listings = computed((): Array<Listing> => listingStore.listings)
+
+// Function to handle listing selection
+const selectListing = (listing: Listing) => {
+  listingStore.selected = listing
+}
 </script>
 
 <template>
@@ -17,8 +22,13 @@ const listings = computed((): Array<Listing> => listingStore.listings)
     <div class="flex flex-col gap-2 w-full">
       <hr>
       <span class="w-full text-center text-sm uppercase font-bold">Results</span>
-      <ListingCard v-for="l in listings" :listing="l"/>
+      <ListingCard
+        v-for="l in listings"
+        :key="l.id"
+        :listing="l"
+        @click="selectListing(l)"
+        class="cursor-pointer hover:bg-gray-100 transition-colors"
+      />
     </div>
   </div>
 </template>
-

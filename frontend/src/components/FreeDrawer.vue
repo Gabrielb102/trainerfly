@@ -19,6 +19,10 @@ const props = defineProps({
     type: String,
     default: 'Open Drawer'
   },
+  transparent: {
+    type: Boolean,
+    default: false
+  }
 })
 
 const isOpen = ref<boolean>(props.initiallyOpen)
@@ -31,12 +35,18 @@ const toggleDrawer = () => {
 
 // Initialize the base classes
 const getBaseClass = (): string => {
-  let baseClass = 'absolute top-0 bottom-0 transition-transform duration-300 ease-in-out z-100 bg-white shadow-lg'
+  let baseClass = 'absolute top-0 bottom-0 transition-transform duration-300 ease-in-out z-50 shadow-lg'
+
+  if (props.transparent) {
+    baseClass += ' bg-transparent'
+  } else {
+    baseClass += ' bg-white dark:bg-gray-800'
+  }
 
   if (props.direction === 'left' || props.direction === 'right' || !props.direction) {
     baseClass += ' h-full w-80 min-w-40'
   } else if (props.direction === 'top' || props.direction === 'bottom') {
-    baseClass += ' w-full h-40 min-h-20'
+    baseClass += ' w-full h-auto max-h-[70vh] min-h-40'
   }
 
   if (props.direction === 'left' || !props.direction) {

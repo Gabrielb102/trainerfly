@@ -6,10 +6,10 @@ class ScriptLoader
 {
     public static function loadFrontendScripts($main_plugin_dir): void
     {
-        $nuxt_output_dir = $main_plugin_dir . '/frontend/dist/assets';
+        $bundle_output_dir = $main_plugin_dir . '/frontend/dist/assets';
 
         // Enqueue all .js files
-        foreach (glob($nuxt_output_dir . '/*.js') as $js_file) {
+        foreach (glob($bundle_output_dir . '/*.js') as $js_file) {
 
             // Get the relative path and URL
             $relative_path = str_replace($main_plugin_dir, 'trainerfly/', $js_file);
@@ -35,7 +35,7 @@ class ScriptLoader
         }
 
         // Enqueue all .css files
-        foreach (glob($nuxt_output_dir . '/*.css') as $css_file) {
+        foreach (glob($bundle_output_dir . '/*.css') as $css_file) {
             $relative_path = str_replace($main_plugin_dir, 'trainerfly/', $css_file);
             $file_url = plugins_url($relative_path, $main_plugin_dir);
             $version = filemtime($css_file); // Use file modification time as version

@@ -112,6 +112,10 @@ watch(() => listings.value, (newListings) => {
     >
       <SideMenu />
     </FreeDrawer>
+
+    <!-- Vendor Drawer Component -->
+    <VendorDrawer />
+
     <!--  MapLibre with Open Free Map used to avoid usage fees - at least for now -->
     <MglMap mapKey="main" map-style="https://tiles.openfreemap.org/styles/liberty"
             :max-bounds="[[-180, 17], [-65, 72]]" :max-pitch="0" :max-zoom="15" min-zoom="5"
