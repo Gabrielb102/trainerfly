@@ -22,15 +22,18 @@ watch(
   },
 )
 
-// Placeholder for contact vendor function
+// <editor-fold desc="Links">--------------------------------
+
 const contactVendor = () => {
   console.log('Contact vendor functionality to be implemented')
 }
 
-// Placeholder for view vendor page function
-const viewVendorPage = () => {
-  console.log('View vendor page functionality to be implemented')
+const goToListing = () => {
+  if (selectedListing.value) {
+    window.location.href = selectedListing.value.url;
+  }
 }
+
 </script>
 
 <template>
@@ -42,39 +45,41 @@ const viewVendorPage = () => {
     :transparent="true"
   >
     <!-- When Opened -->
-    <div
-      v-if="selectedListing"
-      class="pt-2 px-4 pb-4 flex flex-col gap-4"
-      style="margin-left: auto; width: calc(100% - 96rem)"
-    >
-      <!-- Header: Vendor Image and Info -->
-      <div class="flex items-center gap-4 pb-3 rounded-t-xl bg-white">
-        <img
-          :src="selectedListing.vendor.image || 'https://via.placeholder.com/150'"
-          alt="Vendor"
-          class="w-20 h-20 rounded-lg object-cover"
-        />
-        <div id="info" class="flex flex-col gap-1">
-          <div class="flex gap-6">
-            <h2 class="text-xl font-bold">{{ selectedListing.vendor.name }}</h2>
-            <UBadge :label="selectedListing.category ?? ''" />
+    <div v-if="selectedListing" class="flex h-full w-full justify-start">
+      <div class="ml-96 w-[1000px] p-4 pt-6 h-full flex flex-col gap-4 bg-white rounded-t-xl">
+        <!-- Header: Vendor Image and Info -->
+        <div class="flex flex-grow items-start gap-4">
+          <img
+            :src="selectedListing.vendor.image || 'https://via.placeholder.com/150'"
+            alt="Vendor"
+            class="flex-none w-20 h-20 rounded-lg object-cover"
+          />
+          <div id="info" class="flex flex-col flex-grow gap-1">
+            <div class="flex gap-6 items-center">
+              <h2 class="text-xl font-bold">{{ selectedListing.vendor.name }}</h2>
+              <div class="flex gap-2 items-center justify-start">
+                <UBadge
+                  variant="outline"
+                  class="rounded-full"
+                  :label="selectedListing.category ?? ''"
+                />
+              </div>
+            </div>
+            <h3 class="text-lg font-normal">{{ selectedListing.title }}</h3>
+            <p class="text-sm text-gray-600">
+              {{ 'No Description' }}
+            </p>
           </div>
-          <h3 class="text-lg font-normal">{{ selectedListing.title }}</h3>
-          <p class="text-sm text-gray-600">
-            {{ 'No Description' }}
-          </p>
+          <div id="buttons" class="flex flex-none flex-col gap-2 w-64">
+            <UButton color="primary" class="w-full" @click="contactVendor">Contact</UButton>
+            <UButton color="primary" variant="outline" class="w-full" @click="goToListing">More Info</UButton>
+          </div>
         </div>
-        <div id="buttons" class="flex flex-col gap-2">
-          <UButton color="primary" class="px-6" @click="contactVendor">Contact</UButton>
-          <UButton color="secondary" class="px-6" @click="viewVendorPage">More Info</UButton>
-        </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-4">
         <!-- Recent Review (placeholder) -->
-        <div>
-          <h4 class="font-bold">Review Title</h4>
-          <div class="bg-gray-100 p-2 rounded mt-1">
+        <div class="flex flex-none h-18">
+          <div class="bg-blue-100 p-4 rounded-lg w-full">
+            <h4 class="font-bold">Review Title</h4>
             <p class="text-md">
               "Most recent review! I made this review so recently that it is the first one you see."
             </p>

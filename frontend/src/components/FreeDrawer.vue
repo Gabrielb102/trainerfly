@@ -35,7 +35,7 @@ const toggleDrawer = () => {
 
 // Initialize the base classes
 const getBaseClass = (): string => {
-  let baseClass = 'absolute top-0 bottom-0 transition-transform duration-300 ease-in-out z-50 shadow-lg'
+  let baseClass = 'absolute transition-transform duration-300 ease-in-out z-50 shadow-lg'
 
   if (props.transparent) {
     baseClass += ' bg-transparent'
@@ -44,9 +44,12 @@ const getBaseClass = (): string => {
   }
 
   if (props.direction === 'left' || props.direction === 'right' || !props.direction) {
-    baseClass += ' h-full w-80 min-w-40'
-  } else if (props.direction === 'top' || props.direction === 'bottom') {
-    baseClass += ' w-full h-auto max-h-[70vh] min-h-40'
+    baseClass += ' h-full w-80 min-w-40 top-0 bottom-0'
+  } else if (props.direction === 'top') {
+    baseClass += ' w-full h-auto max-h-[70vh] min-h-40 top-0'
+  } else if (props.direction === 'bottom') {
+    // Fixed height for bottom drawer, always anchored to bottom
+    baseClass += ' w-full h-60 min-h-40 bottom-0 overflow-y-auto'
   }
 
   if (props.direction === 'left' || !props.direction) {
@@ -54,9 +57,9 @@ const getBaseClass = (): string => {
   } else if (props.direction === 'right') {
     baseClass += ' right-0'
   } else if (props.direction === 'top') {
-    baseClass += ' top-0'
+    // already handled above
   } else if (props.direction === 'bottom') {
-    baseClass += ' bottom-0'
+    // already handled above
   }
 
   return baseClass

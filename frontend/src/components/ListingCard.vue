@@ -17,9 +17,7 @@ defineProps<{
       />
       <div class="flex flex-col flex-grow min-w-0">
         <h3 class="text-md font-extrabold text-primary truncate uppercase">
-          <a :href="listing.url" class="hover:text-primary-500 transition-colors">
             {{ listing.title }}
-          </a>
         </h3>
         <h4 class="text-md text-primary truncate">
           {{ listing.vendor.name }}
