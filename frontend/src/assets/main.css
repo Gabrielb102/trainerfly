@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
-@import url('/fonts.css');
+@import url('../public/fonts.css');
 
 
 /* Why set here?

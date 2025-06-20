@@ -49,7 +49,7 @@ const getBaseClass = (): string => {
     baseClass += ' w-full h-auto max-h-[70vh] min-h-40 top-0'
   } else if (props.direction === 'bottom') {
     // Fixed height for bottom drawer, always anchored to bottom
-    baseClass += ' w-full h-60 min-h-40 bottom-0 overflow-y-auto'
+    baseClass += ' w-full min-h-60 h-fit bottom-0 overflow-y-auto'
   }
 
   if (props.direction === 'left' || !props.direction) {

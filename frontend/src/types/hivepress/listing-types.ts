@@ -15,10 +15,10 @@ export interface Listing {
   latitude: number;
   longitude: number;
   location: string;
-  image: string | null;
-  price: number | null;
-  category: string | null;
-  description: string | null;
+  image: string | undefined;
+  price: number | undefined;
+  category: string | undefined;
+  description: string | undefined;
   reviews: Array<Review>;
   vendor: Vendor;
 }
