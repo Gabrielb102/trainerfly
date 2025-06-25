@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { useListingStore } from '@/stores/listing'
 import FreeDrawer from '@/components/FreeDrawer.vue'
 
@@ -23,13 +24,14 @@ watch(
 )
 
 // <editor-fold desc="Links">--------------------------------
-
+const router = useRouter()
 const contactVendor = () => {
   console.log('Contact vendor functionality to be implemented')
 }
 
 const goToListing = () => {
   if (listing.value) {
+    // router.push(`/listing/${listing.value.id}`)
     window.location.href = listing.value.url;
   }
 }
