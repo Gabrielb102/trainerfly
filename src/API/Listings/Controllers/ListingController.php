@@ -24,6 +24,7 @@ class ListingController
      *   - latitude (float, required): The latitude coordinate
      *   - longitude (float, required): The longitude coordinate
      *   - radius (int, optional): Search radius in km (default: 15)
+     *   - categoryId (int, optional): Category ID to filter listings by specific category
      * 
      * @return WP_REST_Response Returns a REST response with:
      *   - status: 200 on success
@@ -31,7 +32,7 @@ class ListingController
      *   - status: 400 if coordinates are missing or invalid
      * 
      * @example
-     * GET /wp-json/trainerfly/v1/listings/geo?latitude=40.7128&longitude=-74.0060&radius=15
+     * GET /wp-json/trainerfly/v1/listings/geo?latitude=40.7128&longitude=-74.0060&radius=15&categoryId=123
      */
     public static function getListings(WP_REST_Request $request)
     {
@@ -39,6 +40,7 @@ class ListingController
         $latitude = floatval($request->get_param('latitude'));
         $longitude = floatval($request->get_param('longitude'));
         $radius = absint($request->get_param('radius')) ?: absint(get_option('hp_geolocation_radius', 15));
+        $categoryId = absint($request->get_param('categoryId'));
 
         // Check if we have valid coordinates
         if (empty($latitude) || empty($longitude)) {
@@ -59,6 +61,11 @@ class ListingController
                 'status' => 'publish',
             ]
         );
+
+        // Add category filter if provided
+        if (!empty($categoryId)) {
+            $query->filter(['categories__in' => [$categoryId]]);
+        }
 
         // Add meta query for latitude and longitude
         $query->set_args([
