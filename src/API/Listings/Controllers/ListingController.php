@@ -103,6 +103,7 @@ class ListingController
      *   - longitude (float, optional): The longitude coordinate. If not provided, returns categories with listings that have no coordinates
      *   - radius (int, optional): Search radius in km (default: 15) - only used when coordinates are provided
      *   - searchQuery (string, optional): Search term to filter categories
+     *   - categoryId (int, optional): Parent category ID to get subcategories. If not provided, returns top-level categories
      */
     public static function getCategories(WP_REST_Request $request) {
         global $wpdb;
@@ -112,6 +113,7 @@ class ListingController
         $longitude = floatval($request->get_param('longitude'));
         $radius = absint($request->get_param('radius')) ?: absint(get_option('hp_geolocation_radius', 15));
         $searchQuery = sanitize_text_field($request->get_param('searchQuery'));
+        $categoryId = absint($request->get_param('categoryId'));
 
         // Convert radius to kilometers if using miles
         if (get_option('hp_geolocation_use_miles')) {
@@ -171,6 +173,15 @@ class ListingController
             ";
 
             $params = [$lat_min, $lat_max, $lng_min, $lng_max];
+        }
+
+        // Add parent category filter if provided
+        if (!empty($categoryId)) {
+            $sql .= " AND tt.parent = %d";
+            $params[] = $categoryId;
+        } else {
+            // If no categoryId provided, get only top-level categories (parent = 0)
+            $sql .= " AND tt.parent = 0";
         }
 
         // Add search filter to query if provided
