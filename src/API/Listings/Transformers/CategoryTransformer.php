@@ -28,6 +28,7 @@ class CategoryTransformer implements TransformerInterface
             'slug' => $category->slug,
             'parent' => (int)$category->parent,
             'image' => $image_url,
+            'icon' => $category->icon,
             'listing_count' => (int)$category->listing_count,
             'url' => get_term_link($category->term_id),
         ];
@@ -37,7 +38,7 @@ class CategoryTransformer implements TransformerInterface
      * Transform multiple categories to API response format
      * 
      * @param array $categories Array of category objects from database
-     * @return array
+     * @return array    
      */
     public static function transformCollection(array $categories): array
     {

@@ -1,14 +1,27 @@
 <script setup lang="ts">
-import {computed} from 'vue'
-import {useListingStore} from '@/stores/listing'
-import {Listing} from '@/types/hivepress/listing-types'
+import { computed } from 'vue'
+import { useListingStore } from '@/stores/listing'
+import { Listing } from '@/types/hivepress/listing-types'
+import { Category } from '@/types/hivepress/category-types'
+
+const props = defineProps<{
+  showListings: {
+    type: boolean,
+    default: false
+  }
+}>()
 
 const listingStore = useListingStore()
 const listings = computed((): Array<Listing> => listingStore.listings)
+const categories = computed((): Array<Category> => listingStore.categories)
 
 // Function to handle listing selection
 const selectListing = (listing: Listing) => {
-  listingStore.selected = listing
+  listingStore.selectedListing = listing
+}
+
+const selectCategory = (category: Category) => {
+  listingStore.selectedCategory = category
 }
 </script>
 
@@ -17,18 +30,18 @@ const selectListing = (listing: Listing) => {
     <div class="w-full px-10 text-center">
       <span class="uppercase font-bold">What do I want to learn?</span>
     </div>
-    <UInput variant="soft" color="neutral" class="w-full"/>
-    <UButton color="primary" label="Search" class="w-full"/>
+    <UInput variant="soft" color="neutral" class="w-full" />
+    <UButton color="primary" label="Search" class="w-full" />
     <div class="flex flex-col gap-2 w-full">
       <hr>
       <span class="w-full text-center text-sm uppercase font-bold">Results</span>
-      <ListingCard
-        v-for="l in listings"
-        :key="l.id"
-        :listing="l"
-        @click="selectListing(l)"
-        class="cursor-pointer hover:bg-gray-100 transition-colors"
-      />
+      <div v-if="!showListings" class="grid grid-cols-2 gap-4">
+        <CategoryCard v-for="c in categories" :key="c.id" :category="c" @selectCategory="selectCategory" />
+      </div>
+      <div v-if="showListings" class="flex flex-col gap-2">
+        <ListingCard v-for="l in listings" :key="l.id" :listing="l" @click="selectListing(l)"
+          class="cursor-pointer hover:bg-gray-100 transition-colors" />
+      </div>
     </div>
   </div>
 </template>

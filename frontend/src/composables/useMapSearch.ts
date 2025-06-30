@@ -16,8 +16,9 @@ const searchAPIEndpoint: string = 'search/searchbox/v1/'
 
 export function useMapSearch(suggestDelay: number = 500) {
 
+
   const sessionToken = ref<string>(uuid())
-  const { getListingsByLocation } = useListings()
+  const { getCategories } = useListings()
   const mapStore = useMapStore()
 
   // <editor-fold desc="Search Suggestions">------------------------------------------
@@ -169,7 +170,7 @@ export function useMapSearch(suggestDelay: number = 500) {
       mapStore.location = newLocation
 
       // Use the new location to get listings
-      await getListingsByLocation(newLocation)
+      await getCategories(newLocation)
 
       // Return the new location
       return newLocation

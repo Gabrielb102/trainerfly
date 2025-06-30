@@ -21,7 +21,7 @@ class Router
             ]);
 
             // Register a new endpoint for geolocation search - optional to include category
-            register_rest_route(self::$prefix, '/listings/geo', [
+            register_rest_route(self::$prefix, '/listings', [
                 'methods' => 'GET',
                 'callback' => [ListingController::class, 'getListings'],
                 'permission_callback' => '__return_true',

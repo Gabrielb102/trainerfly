@@ -3,6 +3,7 @@ import {useAPI} from "@/composables/useAPI";
 import {AxiosResponse} from "axios";
 import {MapboxFeature} from "@/types/map/mapbox-types";
 import {Listing} from "@/types/hivepress/listing-types";
+import {Category} from "@/types/hivepress/category-types";
 import type {Map} from 'maplibre-gl'
 import {Marker} from 'maplibre-gl'
 import mapMarkerIcon from '@/assets/images/map-marker.svg'
@@ -26,13 +27,24 @@ export function useListings() {
   const listingStore = useListingStore()
   const {get} = useAPI()
 
-  const getListingsByLocation = async (newLocation: MapboxFeature): Promise<Array<Listing>> => {
-    const latitude: number = newLocation.geometry.coordinates[1]
-    const longitude: number = newLocation.geometry.coordinates[0]
+  const getListings = async (newLocation?: MapboxFeature, radius?: number, categoryId?: number): Promise<Array<Listing>> => {
+    const latitude: number | null = newLocation?.geometry.coordinates[1] ?? null
+    const longitude: number | null = newLocation?.geometry.coordinates[0] ?? null
 
-    const res: AxiosResponse<Array<Listing>> = await get('listings/geo', {latitude, longitude})
+    const res: AxiosResponse<Array<Listing>> = await get('listings', {latitude, longitude, radius, categoryId})
 
     listingStore.listings = res.data
+
+    return res.data
+  }
+
+  const getCategories = async (newLocation?: MapboxFeature, radius?: number, searchQuery?: string, categoryId?: number): Promise<Array<Category>> => {
+    const latitude: number | null = newLocation?.geometry.coordinates[1] ?? null
+    const longitude: number | null = newLocation?.geometry.coordinates[0] ?? null
+
+    const res: AxiosResponse<Array<Category>> = await get('categories', {latitude, longitude, radius, searchQuery, categoryId})
+
+    listingStore.categories = res.data
 
     return res.data
   }
@@ -63,7 +75,8 @@ export function useListings() {
 
 
   return {
-    getListingsByLocation,
+    getListings,
+    getCategories,
     addMarkersToMap,
     removeMarkersFromMap
   }

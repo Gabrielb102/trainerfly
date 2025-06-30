@@ -21,8 +21,8 @@ class ListingController
      * Uses geolocation meta fields to filter listings by latitude and longitude.
      * 
      * @param WP_REST_Request $request The request object containing:
-     *   - latitude (float, required): The latitude coordinate
-     *   - longitude (float, required): The longitude coordinate
+     *   - latitude (float, optional): The latitude coordinate
+     *   - longitude (float, optional): The longitude coordinate
      *   - radius (int, optional): Search radius in km (default: 15)
      *   - categoryId (int, optional): Category ID to filter listings by specific category
      * 
@@ -97,11 +97,11 @@ class ListingController
         // Transform the results using ListingTransformer
         $transformer = new ListingTransformer();
         $results = $transformer->transformCollection($listings);
-        
+
         return hp\rest_response(200, $results);
     }
 
-    
+
     /**
      * Get categories available in a specific location, or categories with listings that have no assigned coordinates
      * 
@@ -112,9 +112,10 @@ class ListingController
      *   - searchQuery (string, optional): Search term to filter categories
      *   - categoryId (int, optional): Parent category ID to get subcategories. If not provided, returns top-level categories
      */
-    public static function getCategories(WP_REST_Request $request) {
+    public static function getCategories(WP_REST_Request $request)
+    {
         global $wpdb;
-        
+
         // Get location parameters
         $latitude = floatval($request->get_param('latitude'));
         $longitude = floatval($request->get_param('longitude'));
@@ -136,18 +137,20 @@ class ListingController
         /** Build the SQL query with JOINs to get categories 
          * in a particular area - or remotely if no coordinates are provided
          * and their counts in one go
-         **/ 
-        
-         $sql = "
+         **/
+
+        $sql = "
             SELECT 
                 t.term_id,
                 t.name,
                 t.slug,
-                t.description,
-                t.parent,
+                ANY_VALUE(tt.description) as description,
+                ANY_VALUE(tt.parent) as parent,
+                ANY_VALUE(icon_meta.meta_value) as icon,
                 COUNT(DISTINCT p.ID) as listing_count
             FROM {$wpdb->terms} t
             INNER JOIN {$wpdb->term_taxonomy} tt ON t.term_id = tt.term_id
+            LEFT JOIN {$wpdb->termmeta} icon_meta ON t.term_id = icon_meta.term_id AND icon_meta.meta_key = 'hp_icon'
             INNER JOIN {$wpdb->term_relationships} tr ON tt.term_taxonomy_id = tr.term_taxonomy_id
             INNER JOIN {$wpdb->posts} p ON tr.object_id = p.ID
         ";
