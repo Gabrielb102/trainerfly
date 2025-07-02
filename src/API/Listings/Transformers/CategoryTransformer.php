@@ -30,6 +30,7 @@ class CategoryTransformer implements TransformerInterface
             'image' => $image_url,
             'icon' => $category->icon,
             'listing_count' => (int)$category->listing_count,
+            'has_children' => (bool)$category->has_children,
             'url' => get_term_link($category->term_id),
         ];
     }

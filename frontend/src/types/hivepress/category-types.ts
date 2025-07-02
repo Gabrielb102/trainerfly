@@ -6,7 +6,8 @@ export type Category = {
   parent: number
   icon?: string | null
   image?: string | null
-  listing_count?: number
+  listing_count?: number,
+  has_children?: boolean
   url?: {
     errors?: {
       invalid_term?: Array<string>

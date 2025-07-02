@@ -95,8 +95,7 @@ class ListingController
         $listings = $query->limit(50)->get();
 
         // Transform the results using ListingTransformer
-        $transformer = new ListingTransformer();
-        $results = $transformer->transformCollection($listings);
+        $results = ListingTransformer::transformCollection($listings->serialize());
 
         return hp\rest_response(200, $results);
     }
@@ -147,12 +146,14 @@ class ListingController
                 ANY_VALUE(tt.description) as description,
                 ANY_VALUE(tt.parent) as parent,
                 ANY_VALUE(icon_meta.meta_value) as icon,
-                COUNT(DISTINCT p.ID) as listing_count
+                COUNT(DISTINCT p.ID) as listing_count,
+                MAX(CASE WHEN child_tt.term_taxonomy_id IS NOT NULL THEN 1 ELSE 0 END) as has_children
             FROM {$wpdb->terms} t
             INNER JOIN {$wpdb->term_taxonomy} tt ON t.term_id = tt.term_id
             LEFT JOIN {$wpdb->termmeta} icon_meta ON t.term_id = icon_meta.term_id AND icon_meta.meta_key = 'hp_icon'
-            INNER JOIN {$wpdb->term_relationships} tr ON tt.term_taxonomy_id = tr.term_taxonomy_id
-            INNER JOIN {$wpdb->posts} p ON tr.object_id = p.ID
+            LEFT JOIN {$wpdb->term_relationships} tr ON tt.term_taxonomy_id = tr.term_taxonomy_id
+            LEFT JOIN {$wpdb->posts} p ON tr.object_id = p.ID AND p.post_type = 'hp_listing' AND p.post_status = 'publish'
+            LEFT JOIN {$wpdb->term_taxonomy} child_tt ON child_tt.parent = t.term_id AND child_tt.taxonomy = 'hp_listing_category'
         ";
 
         $params = [];
@@ -164,22 +165,18 @@ class ListingController
                 LEFT JOIN {$wpdb->postmeta} lat_meta ON p.ID = lat_meta.post_id AND lat_meta.meta_key = 'hp_latitude'
                 LEFT JOIN {$wpdb->postmeta} lng_meta ON p.ID = lng_meta.post_id AND lng_meta.meta_key = 'hp_longitude'
                 WHERE tt.taxonomy = 'hp_listing_category'
-                AND p.post_type = 'hp_listing'
-                AND p.post_status = 'publish'
-                AND (lat_meta.meta_value IS NULL OR lng_meta.meta_value IS NULL)
+                AND (p.ID IS NULL OR (lat_meta.meta_value IS NULL OR lng_meta.meta_value IS NULL))
             ";
         } else {
             // Query for categories with listings in the specified geographic area
             $sql .= "
-                INNER JOIN {$wpdb->postmeta} lat_meta ON p.ID = lat_meta.post_id
-                INNER JOIN {$wpdb->postmeta} lng_meta ON p.ID = lng_meta.post_id
+                LEFT JOIN {$wpdb->postmeta} lat_meta ON p.ID = lat_meta.post_id AND lat_meta.meta_key = 'hp_latitude'
+                LEFT JOIN {$wpdb->postmeta} lng_meta ON p.ID = lng_meta.post_id AND lng_meta.meta_key = 'hp_longitude'
                 WHERE tt.taxonomy = 'hp_listing_category'
-                AND p.post_type = 'hp_listing'
-                AND p.post_status = 'publish'
-                AND lat_meta.meta_key = 'hp_latitude'
-                AND lng_meta.meta_key = 'hp_longitude'
-                AND CAST(lat_meta.meta_value AS DECIMAL(10,6)) BETWEEN %f AND %f
-                AND CAST(lng_meta.meta_value AS DECIMAL(10,6)) BETWEEN %f AND %f
+                AND (p.ID IS NULL OR (
+                    CAST(lat_meta.meta_value AS DECIMAL(10,6)) BETWEEN %f AND %f
+                    AND CAST(lng_meta.meta_value AS DECIMAL(10,6)) BETWEEN %f AND %f
+                ))
             ";
 
             $params = [$lat_min, $lat_max, $lng_min, $lng_max];
@@ -200,7 +197,7 @@ class ListingController
             $params[] = '%' . $wpdb->esc_like($searchQuery) . '%';
         }
 
-        $sql .= " GROUP BY t.term_id ORDER BY listing_count DESC, t.name ASC";
+        $sql .= " GROUP BY t.term_id ORDER BY listing_count DESC, RAND()";
 
         // Execute the query
         $results = $wpdb->get_results($wpdb->prepare($sql, $params));
@@ -208,6 +205,8 @@ class ListingController
         if (empty($results)) {
             return hp\rest_response(200, []);
         }
+
+        
 
         // Transform the results using CategoryTransformer
         $formatted_results = CategoryTransformer::transformCollection($results);

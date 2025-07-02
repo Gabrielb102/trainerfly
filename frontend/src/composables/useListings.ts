@@ -27,7 +27,7 @@ export function useListings() {
   const listingStore = useListingStore()
   const {get} = useAPI()
 
-  const getListings = async (newLocation?: MapboxFeature, radius?: number, categoryId?: number): Promise<Array<Listing>> => {
+  const getListings = async (newLocation?: MapboxFeature, categoryId?: number, radius?: number,): Promise<Array<Listing>> => {
     const latitude: number | null = newLocation?.geometry.coordinates[1] ?? null
     const longitude: number | null = newLocation?.geometry.coordinates[0] ?? null
 
@@ -38,7 +38,7 @@ export function useListings() {
     return res.data
   }
 
-  const getCategories = async (newLocation?: MapboxFeature, radius?: number, searchQuery?: string, categoryId?: number): Promise<Array<Category>> => {
+  const getCategories = async (newLocation?: MapboxFeature, searchQuery?: string, categoryId?: number, radius?: number): Promise<Array<Category>> => {
     const latitude: number | null = newLocation?.geometry.coordinates[1] ?? null
     const longitude: number | null = newLocation?.geometry.coordinates[0] ?? null
 

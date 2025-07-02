@@ -1,28 +1,23 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useListingStore } from '@/stores/listing'
 import { Listing } from '@/types/hivepress/listing-types'
 import { Category } from '@/types/hivepress/category-types'
 
-const props = defineProps<{
-  showListings: {
-    type: boolean,
-    default: false
-  }
-}>()
-
 const listingStore = useListingStore()
 const listings = computed((): Array<Listing> => listingStore.listings)
 const categories = computed((): Array<Category> => listingStore.categories)
+
+const showListings = ref<boolean>(false)
+watch(categories, () => {
+  showListings.value = false
+})
 
 // Function to handle listing selection
 const selectListing = (listing: Listing) => {
   listingStore.selectedListing = listing
 }
 
-const selectCategory = (category: Category) => {
-  listingStore.selectedCategory = category
-}
 </script>
 
 <template>
@@ -36,7 +31,7 @@ const selectCategory = (category: Category) => {
       <hr>
       <span class="w-full text-center text-sm uppercase font-bold">Results</span>
       <div v-if="!showListings" class="grid grid-cols-2 gap-4">
-        <CategoryCard v-for="c in categories" :key="c.id" :category="c" @selectCategory="selectCategory" />
+        <CategoryCard v-for="c in categories" :key="c.id" :category="c" @selectCategory="showListings = true" />
       </div>
       <div v-if="showListings" class="flex flex-col gap-2">
         <ListingCard v-for="l in listings" :key="l.id" :listing="l" @click="selectListing(l)"
