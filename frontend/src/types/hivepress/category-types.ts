@@ -4,6 +4,7 @@ export type Category = {
   slug: string
   description: string
   parent: number
+  grandparent: number
   icon?: string | null
   image?: string | null
   listing_count?: number,

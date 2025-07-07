@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid'
 import axios, { type AxiosResponse } from 'axios'
 import { SearchTypes } from '@/types/map/search-types'
 import { MapboxFeatureCollection, MapboxFeature } from '@/types/map/mapbox-types'
+import { useListingStore } from '@/stores/listing'
 
 // <editor-fold desc="Mapbox API Configuration">---------------------------------
 
@@ -20,6 +21,7 @@ export function useMapSearch(suggestDelay: number = 500) {
   const sessionToken = ref<string>(uuid())
   const { getCategories } = useListings()
   const mapStore = useMapStore()
+  const listingStore = useListingStore()  
 
   // <editor-fold desc="Search Suggestions">------------------------------------------
 
@@ -170,6 +172,7 @@ export function useMapSearch(suggestDelay: number = 500) {
       mapStore.location = newLocation
 
       // Use the new location to get listings
+      listingStore.display = false
       await getCategories(newLocation)
 
       // Return the new location

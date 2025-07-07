@@ -147,13 +147,15 @@ class ListingController
                 ANY_VALUE(tt.parent) as parent,
                 ANY_VALUE(icon_meta.meta_value) as icon,
                 COUNT(DISTINCT p.ID) as listing_count,
-                MAX(CASE WHEN child_tt.term_taxonomy_id IS NOT NULL THEN 1 ELSE 0 END) as has_children
+                MAX(CASE WHEN child_tt.term_taxonomy_id IS NOT NULL THEN 1 ELSE 0 END) as has_children,
+                COALESCE(grandparent_tt.parent, 0) as grandparent
             FROM {$wpdb->terms} t
             INNER JOIN {$wpdb->term_taxonomy} tt ON t.term_id = tt.term_id
             LEFT JOIN {$wpdb->termmeta} icon_meta ON t.term_id = icon_meta.term_id AND icon_meta.meta_key = 'hp_icon'
             LEFT JOIN {$wpdb->term_relationships} tr ON tt.term_taxonomy_id = tr.term_taxonomy_id
             LEFT JOIN {$wpdb->posts} p ON tr.object_id = p.ID AND p.post_type = 'hp_listing' AND p.post_status = 'publish'
             LEFT JOIN {$wpdb->term_taxonomy} child_tt ON child_tt.parent = t.term_id AND child_tt.taxonomy = 'hp_listing_category'
+            LEFT JOIN {$wpdb->term_taxonomy} grandparent_tt ON tt.parent = grandparent_tt.term_id AND grandparent_tt.taxonomy = 'hp_listing_category'
         ";
 
         $params = [];

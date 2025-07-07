@@ -27,6 +27,7 @@ class CategoryTransformer implements TransformerInterface
             'description' => $category->description,
             'slug' => $category->slug,
             'parent' => (int)$category->parent,
+            'grandparent' => (int)$category->grandparent,
             'image' => $image_url,
             'icon' => $category->icon,
             'listing_count' => (int)$category->listing_count,
