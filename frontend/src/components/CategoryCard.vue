@@ -12,8 +12,12 @@ const props = defineProps<{
 // Handle Clicks
 const { getListings, getCategories } = useListings()
 const { showListings } = useSideMenu()
-const mapStore = useMapStore()
 const listingStore = useListingStore()
+const mapStore = useMapStore()
+
+const emit = defineEmits<{
+    (e: 'selectCategory'): void
+}>()
 
 const selectCategory = () => {
 
@@ -21,6 +25,7 @@ const selectCategory = () => {
     getListings(mapStore.location, props.category.id)
 
     // Set Selected Category in store
+    emit('selectCategory')
     listingStore.selectedCategory = props.category
 
     // Show Listings
@@ -29,6 +34,10 @@ const selectCategory = () => {
 
 const viewChildCategories = () => {
 
+    // Set Selected Category in store
+    emit('selectCategory')
+    listingStore.selectedCategory = props.category
+
     // Get Child Categories for Category
     getCategories(mapStore.location, undefined, props.category.id)
 }
@@ -36,7 +45,7 @@ const viewChildCategories = () => {
 </script>
 
 <template>
-    <div class="w-full h-fit min-h-20 flex flex-col items-center justify-center gap-2 p-4 aspect-square shadow-md/40 rounded-xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors"
+    <div class="w-full aspect-square min-h-20 flex flex-col items-center justify-center gap-2 p-4 aspect-square shadow-md/40 rounded-xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors"
         @click="selectCategory">
         <div class="w-full h-full flex items-center justify-center">
             <UIcon :name="category.icon ? `fa6-solid:${category.icon}` : 'fa6-solid:circle-question'"

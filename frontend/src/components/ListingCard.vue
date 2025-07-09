@@ -4,10 +4,18 @@ import { Listing } from '@/types/hivepress/listing-types'
 defineProps<{
   listing: Listing
 }>()
+
+const emit = defineEmits<{
+  (e: 'selectListing'): void
+}>()
+
+const selectListing = () => {
+  emit('selectListing')
+}
 </script>
 
 <template>
-  <div class="w-full h-fit min-h-20 p-4 shadow-md/40 rounded-xl flex items-start gap-4">
+  <div class="w-full h-fit min-h-20 p-4 shadow-md/40 rounded-xl flex items-start gap-4" @click="selectListing">
     <img :src="listing.vendor.image || ''" :alt="listing.vendor.name"
       class="mt-1 flex-shrink-0 h-14 w-14 rounded-full object-cover" />
     <div class="flex flex-col flex-grow min-w-0">

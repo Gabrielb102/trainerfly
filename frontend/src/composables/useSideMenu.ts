@@ -29,6 +29,9 @@ export function useSideMenu() {
         if (listingStore.display) {
             listingStore.display = false
             getCategories(location.value, searchQuery.value, selectedCategory.value?.parent)
+            if (selectedCategory.value?.parent === 0) {
+                listingStore.selectedCategory = null
+            }
 
         } else {
             getCategories(location.value, searchQuery.value, selectedCategory.value?.grandparent)
@@ -44,6 +47,7 @@ export function useSideMenu() {
     const hideListings = () => {
         listingStore.display = false
     }
+
 
     return {
         goBack,
