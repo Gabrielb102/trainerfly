@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { Listing } from '@/types/hivepress/listing-types'
+import { useListingStore } from '@/stores/listing'
 
-defineProps<{
+const props = defineProps<{
   listing: Listing
 }>()
 
-const emit = defineEmits<{
-  (e: 'selectListing'): void
-}>()
+
+const listingStore = useListingStore()
 
 const selectListing = () => {
-  emit('selectListing')
+  listingStore.selectedListing = props.listing
 }
 </script>
 

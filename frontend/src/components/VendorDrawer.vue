@@ -5,7 +5,7 @@ import { useListingStore } from '@/stores/listing'
 import FreeDrawer from '@/components/FreeDrawer.vue'
 
 const listingStore = useListingStore()
-const listing = computed(() => listingStore.selected)
+const listing = computed(() => listingStore.selectedListing)
 
 // Drawer reference and state
 type FreeDrawerType = InstanceType<typeof FreeDrawer>
