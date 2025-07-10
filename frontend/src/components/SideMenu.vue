@@ -73,6 +73,7 @@ function onEnter(el: Element, done: () => void) {
           <CategoryCard v-for="(c, i) in categories" :key="c.id" :data-index="i" :category="c" @selectCategory="startLoading" />
           <ListingCard v-for="(l, i) in listings" :key="l.id" :data-index="i" :listing="l" @selectListing="startLoading"
             class="cursor-pointer hover:bg-gray-100 transition-colors" />
+          <NoListingsMessage v-if="displayListings && listings.length === 0" :categoryName="selectedCategory?.name || ''" />
         </TransitionGroup>
       </template>
     </div>
