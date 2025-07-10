@@ -12,6 +12,9 @@ const selectSuggestion = async (suggestion) => {
   // Then update the selected suggestion and query
   selectedSuggestion.value = suggestion
   query.value = suggestion.name
+
+  // Automatically retrieve the selected suggestion, better UX IMO
+  retrieve(selectedSuggestion.value)
 }
 
 // Find and navigate to the selected place

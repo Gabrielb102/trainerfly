@@ -104,12 +104,7 @@ watch(() => listings.value, (newListings) => {
 
 <template>
   <div class="relative w-full h-full">
-    <FreeDrawer
-      ref="drawerRef"
-      direction="left"
-      :showToggleButton="false"
-      :initiallyOpen="false"
-    >
+    <FreeDrawer ref="drawerRef" direction="left" :showToggleButton="false" :initiallyOpen="false">
       <SideMenu />
     </FreeDrawer>
 
@@ -117,8 +112,8 @@ watch(() => listings.value, (newListings) => {
     <VendorDrawer />
 
     <!--  MapLibre with Open Free Map used to avoid usage fees - at least for now -->
-    <MglMap mapKey="main" map-style="https://tiles.openfreemap.org/styles/liberty"
-            :max-bounds="[[-180, 17], [-65, 72]]" :max-pitch="0" :max-zoom="15" min-zoom="5"
-            :center="[-100, 40]" :zoom="5" />
+    <MglMap mapKey="main" map-style="https://tiles.openfreemap.org/styles/liberty" :max-bounds="[[-180, 17], [-65, 72]]"
+      :max-pitch="0" :max-zoom="15" min-zoom="5" :center="[-100, 40]" :zoom="5" :pitch="0" :bearing="0"
+      :antialias="false" :preserve-drawing-buffer="false" />
   </div>
 </template>
