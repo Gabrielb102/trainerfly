@@ -6,7 +6,8 @@ import { useListingStore } from '@/stores/listing';
 import { useSideMenu } from '@/composables/useSideMenu';
 
 const props = defineProps<{
-    category: Category
+    category: Category,
+    dark?: boolean
 }>()
 
 // Handle Clicks
@@ -45,7 +46,7 @@ const viewChildCategories = () => {
 </script>
 
 <template>
-    <div class="w-full aspect-square min-h-20 flex flex-col items-center justify-center gap-2 py-4 px-2 aspect-square shadow-md/40 rounded-xl cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors"
+    <div :class="['w-full aspect-square min-h-20 flex flex-col items-center justify-center gap-2 py-4 px-2 aspect-square shadow-md/40 rounded-xl cursor-pointer', { 'bg-gray-100 hover:bg-gray-200 transition-colors': !dark, 'bg-white hover:bg-gray-300 transition-colors': dark }]"
         @click="selectCategory">
         <div class="w-full h-full flex items-center justify-center">
             <UIcon :name="category.icon ? `fa6-solid:${category.icon}` : 'fa6-solid:circle-question'"

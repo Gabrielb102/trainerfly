@@ -39,7 +39,7 @@ watch(listings, loadWatcherCallback)
                     @before-enter="onBeforeEnter" @enter="onEnter">
                     <ListingCard v-if="displayListings" v-for="(l, i) in listings" :key="l.id" class="w-full h-full"
                         :listing="l" :data-index="i" />
-                    <CategoryCard v-else v-for="(c, i) in categories" :key="c.id" :category="c" :data-index="i"
+                    <CategoryCard v-else v-for="(c, i) in categories" :key="c.id" :category="c" :data-index="i" :dark="true"
                         @selectCategory="startLoading" />
                 </TransitionGroup>
             </div>
