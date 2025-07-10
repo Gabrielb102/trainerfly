@@ -25,6 +25,8 @@ export function useSideMenu() {
     const goBack = () => {
 
         listingStore.listings = []
+        listingStore.categories = []
+        
         // If listings are displayed, hide them, and navigate to the parent category
         if (listingStore.display) {
             listingStore.display = false

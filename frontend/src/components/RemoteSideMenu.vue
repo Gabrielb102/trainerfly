@@ -4,7 +4,6 @@ import { useSideMenu } from '@/composables/useSideMenu'
 // Made into a composable so that Child components, as well as the map, can use the same composable
 const { goBack, selectedCategory, searchQuery} = useSideMenu()
 
-
 </script>
 
 <template>
