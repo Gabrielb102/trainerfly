@@ -7,6 +7,7 @@ import { useSideMenu } from '@/composables/useSideMenu';
 import { useLoading } from '@/composables/useLoading';
 import { onBeforeEnter, onEnter } from '@/helpers/animation';
 import { useListings } from '@/composables/useListings';
+import RemoteScreenLoadingVisual from '@/components/RemoteScreenLoadingVisual.vue';
 
 const { displayListings, listings, categories } = useSideMenu()
 const { loading, startLoading, loadWatcherCallback } = useLoading()
@@ -29,13 +30,19 @@ watch(listings, loadWatcherCallback)
                 <RemoteSearch />
             </template>
         </Header>
-        <div class="flex w-full h-full gap-0">
+        <div class="flex w-full h-full gap-0 justify-center items-start">
             <RemoteSideMenu />
-            <TransitionGroup tag="div" :class="['w-full h-full grid justify-center items-start bg-gray-100', {'grid-cols-6 gap-4': !displayListings, 'grid-cols-3 gap-6': displayListings}]"
-            @before-enter="onBeforeEnter" @enter="onEnter">
-                <ListingCard v-if="displayListings" v-for="listing in listings" :key="listing.id" class="w-full h-full" :listing="listing"/>
-                <CategoryCard v-else v-for="category in categories" :key="category.id" :category="category" @selectCategory="startLoading"/>
-            </TransitionGroup>
+            <div class="w-full h-full flex justify-center items-start bg-gray-200">
+                <RemoteScreenLoadingVisual v-if="loading" :isListings="displayListings"/>
+                <TransitionGroup v-else tag="div" appear
+                    :class="['md:w-[600px] lg:w-[800px] xl:w-[1000px] h-fit grid justify-center items-start md:p-4 lg:px-10 lg:py-6', { 'md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4': !displayListings, 'md:grid-cols-2 lg:grid-cols-3 gap-6': displayListings }]"
+                    @before-enter="onBeforeEnter" @enter="onEnter">
+                    <ListingCard v-if="displayListings" v-for="(l, i) in listings" :key="l.id" class="w-full h-full"
+                        :listing="l" :data-index="i" />
+                    <CategoryCard v-else v-for="(c, i) in categories" :key="c.id" :category="c" :data-index="i"
+                        @selectCategory="startLoading" />
+                </TransitionGroup>
+            </div>
         </div>
     </div>
 </template>

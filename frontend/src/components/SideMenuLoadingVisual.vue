@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ListingCardSkeleton from '@/components/loading-ui/ListingCardSkeleton.vue';
+import CategoryCardSkeleton from '@/components/loading-ui/CategoryCardSkeleton.vue';
 
 defineProps<{
   listing: boolean
@@ -8,9 +10,9 @@ defineProps<{
 
 <template>
   <div v-if="listing" class="flex flex-col gap-4 items-center justify-center">
-    <USkeleton v-for="n in Array.from({ length: 5 })" class="w-full h-30 animate-pulse rounded-xl bg-gray-100" />
+    <ListingCardSkeleton v-for="n in 5" :key="`loading-listing-${n}`" :dark="false"/>
   </div>
   <div v-else class="grid grid-cols-2 gap-4">
-    <USkeleton v-for="n in Array.from({ length: 5 })" class="w-full aspect-square animate-pulse rounded-xl bg-gray-100" />
+    <CategoryCardSkeleton v-for="n in 5" :key="`loading-category-${n}`" :dark="false"/>
   </div>
 </template>
