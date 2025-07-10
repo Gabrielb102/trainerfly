@@ -1,13 +1,19 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import MapScreen from '@/views/MapScreen.vue'
+import RemoteListingScreen from '@/views/RemoteListingScreen.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'start',
       component: MapScreen,
+    },
+    {
+      path: '/remote',
+      name: 'remote-listings',
+      component: RemoteListingScreen,
     },
   ],
 })

@@ -1,5 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import Wordmark from '@/components/svg/Wordmark.vue'
+
 </script>
 
 <template>

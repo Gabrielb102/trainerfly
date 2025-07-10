@@ -1,56 +1,17 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { watch } from 'vue'
 import { useSideMenu } from '@/composables/useSideMenu'
+import { useLoading } from '@/composables/useLoading'
 import SideMenuLoadingVisual from './SideMenuLoadingVisual.vue'
-import gsap from 'gsap'
+import { onBeforeEnter, onEnter } from '@/helpers/animation'
 
 // Made into a composable so that Child components, as well as the map, can use the same composable
 const { goBack, displayListings, categories, listings, selectedCategory, searchQuery, showListings } = useSideMenu()
+const { loading, startLoading, loadWatcherCallback } = useLoading()
 
-//#region Loading State
-
-const loading = ref(true)
-
-const startLoading = () => {
-  loading.value = true
-}
-
-const stopLoading = () => {
-  loading.value = false
-}
-
-const loadWatcherCallback = (newVal: Array<any>, oldVal: Array<any>) => {
-  if (newVal.length > 0) {
-    stopLoading()
-  } else if (newVal.length === 0 && oldVal.length > 0) {
-    startLoading()
-  } else if (newVal.length === 0 && oldVal.length === 0) {
-    stopLoading()
-  }
-}
-
+// Loading Triggers
 watch(categories, loadWatcherCallback)
 watch(listings, loadWatcherCallback)
-
-//#endregion
-
-//#region Animation Functions
-
-function onBeforeEnter(el: Element) {
-  const htmlEl = el as HTMLElement
-  htmlEl.style.opacity = '0'
-}
-
-function onEnter(el: Element, done: () => void) {
-  const htmlEl = el as HTMLElement
-  gsap.to(el, {
-    opacity: 1,
-    delay: Number(htmlEl?.dataset?.index) * 0.05,
-    onComplete: done
-  })
-}
-
-//#endregion
 
 </script>
 

@@ -1,6 +1,7 @@
 <script setup>
 import ModeSwitch from '@/components/ModeSwitch.vue'
 import { useMapSearch } from '@/composables/useMapSearch.ts'
+import { useRouter } from 'vue-router'
 
 const { query, suggestions, retrieve, preventSuggestions, selectedSuggestion } = useMapSearch()
 
@@ -29,6 +30,17 @@ const onEnter = async () => {
     await retrieve(selectedSuggestion.value)
   }
 }
+
+//#region Navigate to Remote Listing Screen
+
+const router = useRouter()
+
+const goToRemote = () => {
+  router.push('/remote')
+}
+
+//#endregion
+
 </script>
 
 <template>
@@ -60,7 +72,7 @@ const onEnter = async () => {
       </div>
       <UButton label="Search" @click="search" />
       <UButton label="Search for Remote" variant="outline"
-               color="primary" />
+               color="primary" @click="goToRemote" />
     </div>
     <div class="flex gap-2 justify-center items-center">
       <span class="uppercase font-bold">Let's:</span>
