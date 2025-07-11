@@ -18,7 +18,7 @@ const selected = computed((): boolean => listingStore.selectedListing?.id === pr
 </script>
 
 <template>
-  <div :class="['w-full h-fit min-h-20 p-4 shadow-md/40 rounded-xl flex items-start gap-4 transition-all duration-300', {'ring-1 ring-primary': selected}]" @click="selectListing">
+  <div :class="['w-full h-fit min-h-20 p-4 shadow-md/40 rounded-xl flex items-start gap-4 transition-all duration-300 bg-white hover:bg-gray-100 cursor-pointer', {'ring-1 ring-primary': selected}]" @click="selectListing">
     <img :src="listing.vendor.image || ''" :alt="listing.vendor.name"
       class="mt-1 flex-shrink-0 h-14 w-14 rounded-full object-cover" />
     <div class="flex flex-col flex-grow min-w-0">

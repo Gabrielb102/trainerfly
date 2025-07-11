@@ -21,6 +21,13 @@ export function useSideMenu() {
     const searchQuery = ref<string>("")
 
     // Functions
+
+    const clearAll = () => {
+        listingStore.listings = []
+        listingStore.categories = []
+        listingStore.display = false
+    }
+
     const { getCategories } = useListings()
     const goBack = () => {
 
@@ -60,5 +67,6 @@ export function useSideMenu() {
         displayListings,
         showListings,
         hideListings,
+        clearAll
     }
 }

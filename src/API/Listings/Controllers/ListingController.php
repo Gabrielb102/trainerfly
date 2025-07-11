@@ -15,16 +15,18 @@ class ListingController
 {
 
     /**
-     * Get listings by geographic location
+     * Get listings by geographic location or remote listings
      * 
-     * Retrieves published listings within a specified radius of given coordinates.
+     * Retrieves published listings within a specified radius of given coordinates,
+     * or retrieves remote listings (listings without location data) when remote=true.
      * Uses geolocation meta fields to filter listings by latitude and longitude.
      * 
      * @param WP_REST_Request $request The request object containing:
      *   - latitude (float, optional): The latitude coordinate
      *   - longitude (float, optional): The longitude coordinate
-     *   - radius (int, optional): Search radius in km (default: 15)
+     *   - radius (int, optional): Search radius in km (default: 15) - only used for local listings
      *   - categoryId (int, optional): Category ID to filter listings by specific category
+     *   - remote (string, optional): Set to 'true' to retrieve only remote listings (listings without location data)
      * 
      * @return WP_REST_Response Returns a REST response with:
      *   - status: 200 on success
@@ -33,6 +35,7 @@ class ListingController
      * 
      * @example
      * GET /wp-json/trainerfly/v1/listings/geo?latitude=40.7128&longitude=-74.0060&radius=15&categoryId=123
+     * GET /wp-json/trainerfly/v1/listings/geo?remote=true&categoryId=123
      */
     public static function getListings(WP_REST_Request $request)
     {
@@ -41,13 +44,14 @@ class ListingController
         $longitude = floatval($request->get_param('longitude'));
         $radius = absint($request->get_param('radius')) ?: absint(get_option('hp_geolocation_radius', 15));
         $categoryId = absint($request->get_param('categoryId'));
+        $remoteOnly = $request->get_param('remoteOnly') === 'true'; // New parameter for remote listings
 
-        // Check if we have valid coordinates
-        if (empty($latitude) || empty($longitude)) {
-
-            // If only the location name is provided, we could implement geocoding here
-            // but for now we'll require coordinates
-            return hp\rest_error(400, ['message' => 'Latitude and longitude are required']);
+        // Error gate: If not requesting remote listings, location coordinates are required
+        if (!$remoteOnly && (empty($latitude) || empty($longitude))) {
+            return hp\rest_response(400, [
+                'error' => 'Location coordinates are required when not requesting remote listings',
+                'message' => 'Please provide both latitude and longitude parameters, or set remote=true to get remote listings only'
+            ]);
         }
 
         // Convert radius to kilometers if using miles
@@ -67,29 +71,57 @@ class ListingController
             $query->filter(['categories__in' => [$categoryId]]);
         }
 
-        // Add meta query for latitude and longitude
-        $query->set_args([
-            'meta_query' => [
-                'latitude' => [
-                    'key' => 'hp_latitude',
-                    'value' => [
-                        $latitude - $radius / 111, // Approximate conversion from km to degrees
-                        $latitude + $radius / 111,
+        // Handle remote listings (listings without location data)
+        if ($remoteOnly) {
+            $query->set_args([
+                'meta_query' => [
+                    'relation' => 'OR',
+                    [
+                        'key' => 'hp_latitude',
+                        'compare' => 'NOT EXISTS'
                     ],
-                    'type' => 'DECIMAL(10,6)',
-                    'compare' => 'BETWEEN',
-                ],
-                'longitude' => [
-                    'key' => 'hp_longitude',
-                    'value' => [
-                        $longitude - $radius / (111 * cos(deg2rad($latitude))), // Adjust for latitude
-                        $longitude + $radius / (111 * cos(deg2rad($latitude))),
+                    [
+                        'key' => 'hp_latitude',
+                        'value' => '',
+                        'compare' => '='
                     ],
-                    'type' => 'DECIMAL(10,6)',
-                    'compare' => 'BETWEEN',
+                    [
+                        'key' => 'hp_longitude',
+                        'compare' => 'NOT EXISTS'
+                    ],
+                    [
+                        'key' => 'hp_longitude',
+                        'value' => '',
+                        'compare' => '='
+                    ]
+                ]
+            ]);
+        }
+        // Handle local listings (with location data)
+        elseif (!empty($latitude) && !empty($longitude)) {
+            $query->set_args([
+                'meta_query' => [
+                    'latitude' => [
+                        'key' => 'hp_latitude',
+                        'value' => [
+                            $latitude - $radius / 111, // Approximate conversion from km to degrees
+                            $latitude + $radius / 111,
+                        ],
+                        'type' => 'DECIMAL(10,6)',
+                        'compare' => 'BETWEEN',
+                    ],
+                    'longitude' => [
+                        'key' => 'hp_longitude',
+                        'value' => [
+                            $longitude - $radius / (111 * cos(deg2rad($latitude))), // Adjust for latitude
+                            $longitude + $radius / (111 * cos(deg2rad($latitude))),
+                        ],
+                        'type' => 'DECIMAL(10,6)',
+                        'compare' => 'BETWEEN',
+                    ],
                 ],
-            ],
-        ]);
+            ]);
+        }
 
         // Get listings
         $listings = $query->limit(50)->get();

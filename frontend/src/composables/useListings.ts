@@ -27,11 +27,11 @@ export function useListings() {
   const listingStore = useListingStore()
   const {get} = useAPI()
 
-  const getListings = async (newLocation?: MapboxFeature, categoryId?: number, radius?: number,): Promise<Array<Listing>> => {
+  const getListings = async (newLocation?: MapboxFeature, categoryId?: number, radius?: number, remoteOnly?: boolean): Promise<Array<Listing>> => {
     const latitude: number | null = newLocation?.geometry.coordinates[1] ?? null
     const longitude: number | null = newLocation?.geometry.coordinates[0] ?? null
 
-    const res: AxiosResponse<Array<Listing>> = await get('listings', {latitude, longitude, radius, categoryId})
+    const res: AxiosResponse<Array<Listing>> = await get('listings', {latitude, longitude, radius, categoryId, remoteOnly})
 
     listingStore.listings = res.data
 

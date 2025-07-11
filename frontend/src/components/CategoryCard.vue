@@ -7,7 +7,8 @@ import { useSideMenu } from '@/composables/useSideMenu';
 
 const props = defineProps<{
     category: Category,
-    dark?: boolean
+    dark?: boolean,
+    remoteOnly?: boolean
 }>()
 
 // Handle Clicks
@@ -23,7 +24,7 @@ const emit = defineEmits<{
 const selectCategory = () => {
 
     // Get Listings for Category
-    getListings(mapStore.location, props.category.id)
+    getListings(mapStore.location, props.category.id, undefined, props.remoteOnly)
 
     // Set Selected Category in store
     emit('selectCategory')

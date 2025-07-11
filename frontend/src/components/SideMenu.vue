@@ -1,17 +1,22 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import { useSideMenu } from '@/composables/useSideMenu'
 import { useLoading } from '@/composables/useLoading'
 import SideMenuLoadingVisual from './SideMenuLoadingVisual.vue'
 import { onBeforeEnter, onEnter } from '@/helpers/animation'
 
 // Made into a composable so that Child components, as well as the map, can use the same composable
-const { goBack, displayListings, categories, listings, selectedCategory, searchQuery, showListings } = useSideMenu()
+const { goBack, displayListings, categories, listings, selectedCategory, searchQuery, clearAll } = useSideMenu()
 const { loading, startLoading, loadWatcherCallback } = useLoading()
 
 // Loading Triggers
 watch(categories, loadWatcherCallback)
 watch(listings, loadWatcherCallback)
+
+// Clear everything on mount
+onMounted(() => {
+  clearAll()
+})
 
 </script>
 
