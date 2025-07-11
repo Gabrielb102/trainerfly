@@ -2,7 +2,7 @@
 /*
 Plugin Name: TrainerFly - a HivePress Extension
 Description: Add the Trainerfly map UI to the MeetingHive theme for HivePress.
-Version: 0.7.3
+Version: 0.7.4
 Author: Fresco Software
 License: Proprietary
 Text Domain: trainerfly
