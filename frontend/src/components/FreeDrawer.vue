@@ -46,10 +46,10 @@ const getBaseClass = (): string => {
   if (props.direction === 'left' || props.direction === 'right' || !props.direction) {
     baseClass += ' h-full w-80 min-w-40 top-0 bottom-0'
   } else if (props.direction === 'top') {
-    baseClass += ' w-full h-auto max-h-[70vh] min-h-40 top-0'
+    baseClass += ' w-full h-auto max-h-[70vh] top-0'
   } else if (props.direction === 'bottom') {
     // Fixed height for bottom drawer, always anchored to bottom
-    baseClass += ' w-full min-h-60 h-fit bottom-0 overflow-y-auto'
+    baseClass += ' w-full bottom-0 overflow-y-auto'
   }
 
   if (props.direction === 'left' || !props.direction) {
@@ -73,20 +73,20 @@ const updateTransformClass = () => {
   // Then add the appropriate transform class based on the direction and isOpen state
   if (props.direction === 'left' || !props.direction) {
     drawerClass.value = isOpen.value
-      ? `${baseClass} translate-x-0`
-      : `${baseClass} -translate-x-full`
+      ? `${baseClass} translate-x-0 pointer-events-auto`
+      : `${baseClass} -translate-x-full pointer-events-none h-0`
   } else if (props.direction === 'right') {
     drawerClass.value = isOpen.value
-      ? `${baseClass} translate-x-0`
-      : `${baseClass} translate-x-full`
+      ? `${baseClass} translate-x-0 pointer-events-auto`
+      : `${baseClass} translate-x-full pointer-events-none h-0`
   } else if (props.direction === 'top') {
     drawerClass.value = isOpen.value
-      ? `${baseClass} translate-y-0`
-      : `${baseClass} -translate-y-full`
+      ? `${baseClass} translate-y-0 pointer-events-auto`
+      : `${baseClass} -translate-y-full pointer-events-none h-0`
   } else if (props.direction === 'bottom') {
     drawerClass.value = isOpen.value
-      ? `${baseClass} translate-y-0`
-      : `${baseClass} translate-y-full`
+      ? `${baseClass} translate-y-0 pointer-events-auto`
+      : `${baseClass} translate-y-full pointer-events-none h-0`
   }
 }
 
