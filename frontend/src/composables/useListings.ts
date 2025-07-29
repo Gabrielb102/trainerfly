@@ -73,7 +73,6 @@ export function useListings() {
     markers.forEach(marker => marker.remove())
   }
 
-
   return {
     getListings,
     getCategories,

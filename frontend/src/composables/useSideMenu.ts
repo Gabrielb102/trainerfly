@@ -29,6 +29,7 @@ export function useSideMenu() {
     }
 
     const { getCategories } = useListings()
+
     const goBack = () => {
 
         listingStore.listings = []
@@ -37,6 +38,7 @@ export function useSideMenu() {
         // If listings are displayed, hide them, and navigate to the parent category
         if (listingStore.display) {
             listingStore.display = false
+            listingStore.selectedListing = null
             getCategories(location.value, searchQuery.value, selectedCategory.value?.parent)
             if (selectedCategory.value?.parent === 0) {
                 listingStore.selectedCategory = null

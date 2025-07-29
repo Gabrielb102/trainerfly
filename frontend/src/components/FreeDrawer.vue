@@ -1,6 +1,6 @@
 <script setup lang="ts">
-
-import { ref, watch, onMounted } from 'vue'
+import { ref } from 'vue'
+import gsap from 'gsap'
 
 const props = defineProps({
   direction: {
@@ -26,16 +26,15 @@ const props = defineProps({
 })
 
 const isOpen = ref<boolean>(props.initiallyOpen)
-const drawerClass = ref<string>('')
 
 // Function to toggle drawer open/closed
 const toggleDrawer = () => {
   isOpen.value = !isOpen.value
 }
 
-// Initialize the base classes
+// Get base classes for the drawer
 const getBaseClass = (): string => {
-  let baseClass = 'absolute transition-transform duration-300 ease-in-out z-50 shadow-lg'
+  let baseClass = 'absolute z-50 shadow-lg'
 
   if (props.transparent) {
     baseClass += ' bg-transparent'
@@ -48,7 +47,6 @@ const getBaseClass = (): string => {
   } else if (props.direction === 'top') {
     baseClass += ' w-full h-auto max-h-[70vh] top-0'
   } else if (props.direction === 'bottom') {
-    // Fixed height for bottom drawer, always anchored to bottom
     baseClass += ' w-full bottom-0 overflow-y-auto'
   }
 
@@ -56,54 +54,62 @@ const getBaseClass = (): string => {
     baseClass += ' left-0'
   } else if (props.direction === 'right') {
     baseClass += ' right-0'
-  } else if (props.direction === 'top') {
-    // already handled above
-  } else if (props.direction === 'bottom') {
-    // already handled above
   }
 
   return baseClass
 }
 
-// Function to update the transform classes based on isOpen state
-const updateTransformClass = () => {
-  // First, ensure we have the base class (without any transform classes)
-  const baseClass = getBaseClass()
-
-  // Then add the appropriate transform class based on the direction and isOpen state
-  if (props.direction === 'left' || !props.direction) {
-    drawerClass.value = isOpen.value
-      ? `${baseClass} translate-x-0 pointer-events-auto`
-      : `${baseClass} -translate-x-full pointer-events-none h-0`
-  } else if (props.direction === 'right') {
-    drawerClass.value = isOpen.value
-      ? `${baseClass} translate-x-0 pointer-events-auto`
-      : `${baseClass} translate-x-full pointer-events-none h-0`
-  } else if (props.direction === 'top') {
-    drawerClass.value = isOpen.value
-      ? `${baseClass} translate-y-0 pointer-events-auto`
-      : `${baseClass} -translate-y-full pointer-events-none h-0`
-  } else if (props.direction === 'bottom') {
-    drawerClass.value = isOpen.value
-      ? `${baseClass} translate-y-0 pointer-events-auto`
-      : `${baseClass} translate-y-full pointer-events-none h-0`
+// GSAP animation functions for Vue Transition
+const onBeforeEnter = (el: Element) => {
+  const direction = props.direction || 'left'
+  const htmlEl = el as HTMLElement
+  
+  // Set initial position based on direction
+  if (direction === 'left') {
+    gsap.set(htmlEl, { x: '-100%' })
+  } else if (direction === 'right') {
+    gsap.set(htmlEl, { x: '100%' })
+  } else if (direction === 'top') {
+    gsap.set(htmlEl, { y: '-100%' })
+  } else if (direction === 'bottom') {
+    gsap.set(htmlEl, { y: '100%' })
   }
 }
 
-// Initialize the drawer class on mount
-onMounted(() => {
-  updateTransformClass()
-})
+const onEnter = (el: Element, done: () => void) => {
+  gsap.to(el, {
+    x: 0,
+    y: 0,
+    duration: 0.3,
+    ease: 'power2.out',
+    onComplete: done
+  })
+}
 
-// Watch for changes in isOpen and update the classes
-watch(isOpen, () => {
-  updateTransformClass()
-})
+const onLeave = (el: Element, done: () => void) => {
+  const direction = props.direction || 'left'
+  let x = 0
+  let y = 0
 
-// Watch for changes to the direction prop
-watch(() => props.direction, () => {
-  updateTransformClass()
-})
+  // Set exit position based on direction
+  if (direction === 'left') {
+    x = -100
+  } else if (direction === 'right') {
+    x = 100
+  } else if (direction === 'top') {
+    y = -100
+  } else if (direction === 'bottom') {
+    y = 100
+  }
+
+  gsap.to(el, {
+    x: `${x}%`,
+    y: `${y}%`,
+    duration: 0.3,
+    ease: 'power2.out',
+    onComplete: done
+  })
+}
 
 defineExpose({
   isOpen,
@@ -112,15 +118,17 @@ defineExpose({
 </script>
 
 <template>
-  <UButton
-    v-if="showToggleButton"
-    color="primary"
-    :label="buttonText"
-    @click="toggleDrawer"
-  />
+  <UButton v-if="showToggleButton" color="primary" :label="buttonText" @click="toggleDrawer" />
 
-  <!-- Drawer with always-on render but controlled by transform classes -->
-  <div :class="drawerClass">
-    <slot/>
-  </div>
+  <!-- Drawer with Vue Transition and GSAP -->
+  <Transition 
+    appear
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @leave="onLeave"
+  >
+    <div v-if="isOpen" :class="getBaseClass()">
+      <slot />
+    </div>
+  </Transition>
 </template>

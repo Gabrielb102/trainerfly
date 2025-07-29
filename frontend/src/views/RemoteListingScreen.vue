@@ -46,6 +46,7 @@ watch(listings, loadWatcherCallback)
                         :categoryName="selectedCategory?.name || ''" />
                 </TransitionGroup>
             </div>
+            <VendorDrawer />
         </div>
     </div>
 </template>
