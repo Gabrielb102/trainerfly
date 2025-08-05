@@ -1,12 +1,16 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import ModeSwitch from '@/components/ModeSwitch.vue'
+import { useSideMenu } from '@/composables/useSideMenu'
+
+const { clearAll } = useSideMenu()
 
 //#region Navigate to Map Screen
 
 const router = useRouter()
 
 const goToMap = () => {
+  clearAll() // Clear store when switching to map
   router.push('/')
 }
 

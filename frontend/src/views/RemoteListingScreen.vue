@@ -14,7 +14,6 @@ const { loading, startLoading, loadWatcherCallback } = useLoading()
 const { getCategories } = useListings()
 
 onMounted(() => {
-    clearAll()
     getCategories(null, null, null, null, true) // Get the categories with no location data
 })
 

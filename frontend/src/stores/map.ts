@@ -16,5 +16,14 @@ export const useMapStore = defineStore('map', () => {
   };
   const location = ref<MapboxFeature>(defaultLocation)
 
-  return { location }
+  // Mutation functions
+  const resetLocation = () => {
+    location.value = defaultLocation
+  }
+
+  return { 
+    location, 
+    defaultLocation,
+    resetLocation
+  }
 })

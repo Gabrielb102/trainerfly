@@ -2,8 +2,10 @@
 import ModeSwitch from '@/components/ModeSwitch.vue'
 import { useMapSearch } from '@/composables/useMapSearch.ts'
 import { useRouter } from 'vue-router'
+import { useSideMenu } from '@/composables/useSideMenu'
 
 const { query, suggestions, retrieve, preventSuggestions, selectedSuggestion } = useMapSearch()
+const { clearAll } = useSideMenu()
 
 // Function to handle the selection of a suggestion
 const selectSuggestion = async (suggestion) => {
@@ -27,7 +29,6 @@ const search = () => {
 const onEnter = async () => {
   if (suggestions.value && suggestions.value.length > 0) {
     await selectSuggestion(suggestions.value[0])
-    await retrieve(selectedSuggestion.value)
   }
 }
 
@@ -36,6 +37,7 @@ const onEnter = async () => {
 const router = useRouter()
 
 const goToRemote = () => {
+  clearAll() // Clear store when switching to remote
   router.push('/remote')
 }
 

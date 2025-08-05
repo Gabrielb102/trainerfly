@@ -23,6 +23,7 @@ export function useSideMenu() {
     // Functions
 
     const clearAll = () => {
+        mapStore.resetLocation()
         listingStore.listings = []
         listingStore.categories = []
         listingStore.display = false

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import gsap from 'gsap'
-import { onBeforeEnter, onEnter, onLeave } from '../helpers/animation'
 
 const props = defineProps({
   direction: {
@@ -60,7 +59,44 @@ const getBaseClass = (): string => {
   return baseClass
 }
 
-const onLeave = (el: Element, done: () => void) => {
+// Custom drawer animation functions
+const drawerOnBeforeEnter = (el: Element) => {
+  const direction = props.direction || 'left'
+  let x = 0
+  let y = 0
+
+  // Set initial position based on direction (off-screen)
+  if (direction === 'left') {
+    x = -100
+  } else if (direction === 'right') {
+    x = 100
+  } else if (direction === 'top') {
+    y = -100
+  } else if (direction === 'bottom') {
+    y = 100
+  }
+
+  // Set initial transform
+  gsap.set(el, {
+    x: `${x}%`,
+    y: `${y}%`,
+    opacity: 0
+  })
+}
+
+const drawerOnEnter = (el: Element, done: () => void) => {
+  // Animate to final position (center)
+  gsap.to(el, {
+    x: '0%',
+    y: '0%',
+    opacity: 1,
+    duration: 0.4,
+    ease: 'power2.out',
+    onComplete: done
+  })
+}
+
+const drawerOnLeave = (el: Element, done: () => void) => {
   const direction = props.direction || 'left'
   let x = 0
   let y = 0
@@ -79,6 +115,7 @@ const onLeave = (el: Element, done: () => void) => {
   gsap.to(el, {
     x: `${x}%`,
     y: `${y}%`,
+    opacity: 0,
     duration: 0.3,
     ease: 'power2.out',
     onComplete: done
@@ -97,9 +134,9 @@ defineExpose({
   <!-- Drawer with Vue Transition and GSAP -->
   <Transition 
     appear
-    @before-enter="onBeforeEnter"
-    @enter="onEnter"
-    @leave="onLeave"
+    @before-enter="drawerOnBeforeEnter"
+    @enter="drawerOnEnter"
+    @leave="drawerOnLeave"
   >
     <div v-if="isOpen" :class="getBaseClass()">
       <slot />

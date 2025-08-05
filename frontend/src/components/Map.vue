@@ -68,7 +68,6 @@ watch(() => location.value, (newLocation: MapboxFeature) => {
 
       // Only show options after map animation completes
       setTimeout(() => {
-        console.log('Drawer Ref', drawerRef.value)
         if (drawerRef.value) {
           drawerRef.value.isOpen = true
         }

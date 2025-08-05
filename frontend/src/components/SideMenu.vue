@@ -10,13 +10,8 @@ const { goBack, displayListings, categories, listings, selectedCategory, searchQ
 const { loading, startLoading, loadWatcherCallback } = useLoading()
 
 // Loading Triggers
-watch(categories, loadWatcherCallback)
+watch(categories, loadWatcherCallback, { immediate: true })
 watch(listings, loadWatcherCallback)
-
-// Clear everything on mount
-onMounted(() => {
-  clearAll()
-})
 
 </script>
 
