@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import gsap from 'gsap'
+import { onBeforeEnter, onEnter, onLeave } from '../helpers/animation'
 
 const props = defineProps({
   direction: {
@@ -57,33 +58,6 @@ const getBaseClass = (): string => {
   }
 
   return baseClass
-}
-
-// GSAP animation functions for Vue Transition
-const onBeforeEnter = (el: Element) => {
-  const direction = props.direction || 'left'
-  const htmlEl = el as HTMLElement
-  
-  // Set initial position based on direction
-  if (direction === 'left') {
-    gsap.set(htmlEl, { x: '-100%' })
-  } else if (direction === 'right') {
-    gsap.set(htmlEl, { x: '100%' })
-  } else if (direction === 'top') {
-    gsap.set(htmlEl, { y: '-100%' })
-  } else if (direction === 'bottom') {
-    gsap.set(htmlEl, { y: '100%' })
-  }
-}
-
-const onEnter = (el: Element, done: () => void) => {
-  gsap.to(el, {
-    x: 0,
-    y: 0,
-    duration: 0.3,
-    ease: 'power2.out',
-    onComplete: done
-  })
 }
 
 const onLeave = (el: Element, done: () => void) => {
