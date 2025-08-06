@@ -1,6 +1,6 @@
 <script setup lang="js">
-import Map from '@/components/Map.vue'
-import MapSearch from '@/components/MapSearch.vue'
+import Map from '@/components/map-ui/Map.vue'
+import MapSearch from '@/components/map-ui/MapSearch.vue'
 import Header from "@/components/Header.vue";
 
 </script>

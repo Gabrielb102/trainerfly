@@ -4,10 +4,10 @@ import { useSideMenu } from '@/composables/useSideMenu';
 import { useLoading } from '@/composables/useLoading';
 import { onBeforeEnter, onEnter } from '@/helpers/animation';
 import { useListings } from '@/composables/useListings';
-import RemoteSearch from '@/components/RemoteSearch.vue'
-import RemoteSideMenu from '@/components/RemoteSideMenu.vue'
+import RemoteSearch from '@/components/remote-ui/RemoteSearch.vue'
+import RemoteSideMenu from '@/components/remote-ui/RemoteSideMenu.vue'
 import Header from "@/components/Header.vue";
-import RemoteScreenLoadingVisual from '@/components/RemoteScreenLoadingVisual.vue';
+import RemoteScreenLoadingVisual from '@/components/remote-ui/RemoteScreenLoadingVisual.vue';
 
 const { displayListings, listings, categories, clearAll } = useSideMenu()
 const { loading, startLoading, loadWatcherCallback } = useLoading()
