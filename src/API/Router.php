@@ -4,6 +4,7 @@ namespace Fresco\Trainerfly\API;
 
 use HivePress\Controllers\Listing;
 use Fresco\Trainerfly\API\Listings\Controllers\ListingController;
+use Fresco\Trainerfly\API\User\Controllers\UserController;
 
 class Router
 {
@@ -31,6 +32,12 @@ class Router
             register_rest_route(self::$prefix, '/categories', [
                 'methods' => 'GET',
                 'callback' => [ListingController::class, 'getCategories'],
+                'permission_callback' => '__return_true',
+            ]);
+
+            register_rest_route(self::$prefix, '/user', [
+                'methods' => 'GET',
+                'callback' => [UserController::class, 'getCurrent'],
                 'permission_callback' => '__return_true',
             ]);
         });

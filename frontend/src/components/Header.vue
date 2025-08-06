@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import Wordmark from '@/components/svg/Wordmark.vue'
+import { useAuth } from '@/composables/useAuth'
+
+const { isLoggedIn, logOut } = useAuth();
+
+const goToLogin = () => {
+  window.location.href = 'wp-login.php'
+}
 
 </script>
 
@@ -10,10 +17,10 @@ import Wordmark from '@/components/svg/Wordmark.vue'
     </div>
     <slot name="center"/>
     <div class="flex justify-end items-start h-full">
-      <a href="/">
-        <UButton class="uppercase font-bold" color="primary" variant="ghost"
-                 label="login placeholder"/>
-      </a>
+      <UButton v-if="!isLoggedIn" class="uppercase font-bold" color="primary" variant="ghost"
+                 label="Log in" @click="goToLogin"/>
+      <UButton v-else class="uppercase font-bold" color="primary" variant="ghost"
+                 label="Log out" @click="logOut"/>
     </div>
   </header>
 </template>
