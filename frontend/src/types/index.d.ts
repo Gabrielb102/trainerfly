@@ -1,5 +1,6 @@
 type LocalizedData = {
-  baseURL: string;
+  baseAPIURL: string;
+  baseWebURL: string;
   nonce: string;
   mapboxAPIKey: string;
 };

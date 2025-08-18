@@ -1,10 +1,10 @@
 import axios, {AxiosResponse} from 'axios'
 
-const {baseURL, nonce} = localized
+const {baseAPIURL, nonce} = localized
 
 export function useAPI() {
   const api = axios.create({
-    baseURL,
+    baseURL: baseAPIURL,
     headers: {
       'Content-Type': 'application/json',
       'X-WP-Nonce': nonce,
