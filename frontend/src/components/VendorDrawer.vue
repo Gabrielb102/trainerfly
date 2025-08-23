@@ -23,11 +23,7 @@ watch(
   },
 )
 
-// <editor-fold desc="Links">--------------------------------
-const router = useRouter()
-const contactVendor = () => {
-  console.log('Contact vendor functionality to be implemented')
-}
+// Links --------------------------------
 
 const goToListing = () => {
   if (listing.value) {
@@ -65,8 +61,7 @@ const goToListing = () => {
             </p>
           </div>
           <div id="buttons" class="flex flex-none flex-col gap-2 w-64">
-            <UButton color="primary" class="w-full" @click="contactVendor">Contact</UButton>
-            <UButton color="primary" variant="outline" class="w-full" @click="goToListing">More Info</UButton>
+            <UButton color="primary" class="w-full" @click="goToListing">More Info / Contact</UButton>
           </div>
         </div>
 
