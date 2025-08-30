@@ -31,6 +31,7 @@ add_filter(
 use Fresco\Trainerfly\Frontend\PublicFrontend;
 use Fresco\Trainerfly\Frontend\ScriptLoader;
 use Fresco\Trainerfly\API\Router;
+use Fresco\Trainerfly\Frontend\AdminMenu;
 
 // Initialize the plugin
 
@@ -39,6 +40,9 @@ add_action('plugins_loaded', function () {
 	// Load the front end
     PublicFrontend::registerShortcode();
     ScriptLoader::registerHooks(__DIR__);
+
+    // Initialize the admin menu
+    AdminMenu::init();
 
     // Initialize the API Router
     Router::init();

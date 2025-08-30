@@ -1,0 +1,2067 @@
+[
+    {
+        "name": "Business development",
+        "slug": "business-development",
+        "description": "Skills related to business development.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Client retention",
+        "slug": "client-retention",
+        "description": "Skills related to client retention.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Conflict resolution",
+        "slug": "conflict-resolution",
+        "description": "Skills related to conflict resolution.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Data analysis",
+        "slug": "data-analysis",
+        "description": "Skills related to data analysis.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Fitness business management",
+        "slug": "fitness-business-management",
+        "description": "Skills related to fitness business management.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Leadership and management",
+        "slug": "leadership-and-management",
+        "description": "Skills related to leadership and management.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Marketing and branding",
+        "slug": "marketing-and-branding",
+        "description": "Skills related to marketing and branding.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Networking",
+        "slug": "networking",
+        "description": "Skills related to networking.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Personal training",
+        "slug": "personal-training",
+        "description": "Skills related to personal training.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Project management",
+        "slug": "project-management",
+        "description": "Skills related to project management.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Public speaking",
+        "slug": "public-speaking",
+        "description": "Skills related to public speaking.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Resume building/interviewing",
+        "slug": "resume-building-interviewing",
+        "description": "Skills related to resume building and interviewing.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Sales techniques",
+        "slug": "sales-techniques",
+        "description": "Skills related to sales techniques.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Time management",
+        "slug": "time-management",
+        "description": "Skills related to time management.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Appraisal basics",
+        "slug": "appraisal-basics",
+        "description": "Skills related to appraisal basics.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Buyer representation",
+        "slug": "buyer-representation",
+        "description": "Skills related to buyer representation.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "CRM use",
+        "slug": "crm-use",
+        "description": "Skills related to CRM use.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Escrow coordination",
+        "slug": "escrow-coordination",
+        "description": "Skills related to escrow coordination.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Lead generation",
+        "slug": "lead-generation",
+        "description": "Skills related to lead generation.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Listing presentation",
+        "slug": "listing-presentation",
+        "description": "Skills related to listing presentation.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Luxury home marketing",
+        "slug": "luxury-home-marketing",
+        "description": "Skills related to luxury home marketing.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "MLS navigation",
+        "slug": "mls-navigation",
+        "description": "Skills related to MLS navigation.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Market analysis (CMA)",
+        "slug": "market-analysis-cma",
+        "description": "Skills related to market analysis (CMA).",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Negotiating contracts",
+        "slug": "negotiating-contracts",
+        "description": "Skills related to negotiating contracts.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Open house strategies",
+        "slug": "open-house-strategies",
+        "description": "Skills related to open house strategies.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Real estate investing",
+        "slug": "real-estate-investing",
+        "description": "Skills related to real estate investing.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Real estate law basics",
+        "slug": "real-estate-law-basics",
+        "description": "Skills related to real estate law basics.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Real estate photography",
+        "slug": "real-estate-photography",
+        "description": "Skills related to real estate photography.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Real estate sales",
+        "slug": "real-estate-sales",
+        "description": "Skills related to real estate sales.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Title and deed understanding",
+        "slug": "title-and-deed-understanding",
+        "description": "Skills related to title and deed understanding.",
+        "parent": 73,
+        "sort_order": 1
+    },
+    {
+        "name": "Competitive ranking/climbing",
+        "slug": "competitive-ranking-climbing",
+        "description": "Skills related to competitive ranking and climbing in video games.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Esports training",
+        "slug": "esports-training",
+        "description": "Skills related to esports training and competitive gaming.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "First-person shooter accuracy",
+        "slug": "first-person-shooter-accuracy",
+        "description": "Skills related to accuracy in first-person shooter games.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Game commentary",
+        "slug": "game-commentary",
+        "description": "Skills related to providing commentary for video games.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Game reviewing",
+        "slug": "game-reviewing",
+        "description": "Skills related to reviewing video games.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Gaming hardware optimization",
+        "slug": "gaming-hardware-optimization",
+        "description": "Skills related to optimizing gaming hardware for performance.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "MMORPG gameplay",
+        "slug": "mmorpg-gameplay",
+        "description": "Skills related to playing Massively Multiplayer Online Role-Playing Games (MMORPGs).",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "MOBA mastery",
+        "slug": "moba-mastery",
+        "description": "Skills related to mastering Multiplayer Online Battle Arena (MOBA) games.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Modding games",
+        "slug": "modding-games",
+        "description": "Skills related to modifying video games.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Speedrunning",
+        "slug": "speedrunning",
+        "description": "Skills related to completing video games as quickly as possible.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Streaming and content creation",
+        "slug": "streaming-and-content-creation",
+        "description": "Skills related to streaming and creating content for gaming.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Team-based strategy",
+        "slug": "team-based-strategy",
+        "description": "Skills related to team-based strategies in gaming.",
+        "parent": 75,
+        "sort_order": 1
+    },
+    {
+        "name": "Bankroll management",
+        "slug": "bankroll-management",
+        "description": "Skills related to bankroll management.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Betting odds analysis",
+        "slug": "betting-odds-analysis",
+        "description": "Skills related to betting odds analysis.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Blackjack card counting basics",
+        "slug": "blackjack-card-counting-basics",
+        "description": "Skills related to blackjack card counting basics.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Fantasy sports",
+        "slug": "fantasy-sports",
+        "description": "Skills related to fantasy sports.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Horse racing wagering",
+        "slug": "horse-racing-wagering",
+        "description": "Skills related to horse racing wagering.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Live betting strategies",
+        "slug": "live-betting-strategies",
+        "description": "Skills related to live betting strategies.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Poker strategy",
+        "slug": "poker-strategy",
+        "description": "Skills related to poker strategy.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Roulette odds",
+        "slug": "roulette-odds",
+        "description": "Skills related to roulette odds.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Sportsbook evaluation",
+        "slug": "sportsbook-evaluation",
+        "description": "Skills related to sportsbook evaluation.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Understanding spreads and totals",
+        "slug": "understanding-spreads-and-totals",
+        "description": "Skills related to understanding spreads and totals.",
+        "parent": 76,
+        "sort_order": 1
+    },
+    {
+        "name": "Aircraft maintenance",
+        "slug": "aircraft-maintenance",
+        "description": "Skills related to aircraft maintenance.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Appliance repair",
+        "slug": "appliance-repair",
+        "description": "Skills related to appliance repair.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Auto mechanics",
+        "slug": "auto-mechanics",
+        "description": "Skills related to auto mechanics.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "CNC machining",
+        "slug": "cnc-machining",
+        "description": "Skills related to CNC machining.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Carpentry",
+        "slug": "carpentry",
+        "description": "Skills related to carpentry.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Diesel technology",
+        "slug": "diesel-technology",
+        "description": "Skills related to diesel technology.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Electrical work",
+        "slug": "electrical-work",
+        "description": "Skills related to electrical work.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Elevator repair",
+        "slug": "elevator-repair",
+        "description": "Skills related to elevator repair.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "General contracting",
+        "slug": "general-contracting",
+        "description": "Skills related to general contracting.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "HVAC",
+        "slug": "hvac",
+        "description": "Skills related to HVAC.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Locksmithing",
+        "slug": "locksmithing",
+        "description": "Skills related to locksmithing.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Masonry",
+        "slug": "masonry",
+        "description": "Skills related to masonry.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Plumbing",
+        "slug": "plumbing",
+        "description": "Skills related to plumbing.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Solar panel installation",
+        "slug": "solar-panel-installation",
+        "description": "Skills related to solar panel installation.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "Welding",
+        "slug": "welding",
+        "description": "Skills related to welding.",
+        "parent": 77,
+        "sort_order": 1
+    },
+    {
+        "name": "3D modeling/animation",
+        "slug": "3d-modeling-animation",
+        "description": "Skills related to 3D modeling and animation.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "AI and machine learning",
+        "slug": "ai-and-machine-learning",
+        "description": "Skills related to AI and machine learning.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "App development",
+        "slug": "app-development",
+        "description": "Skills related to app development.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Cloud computing",
+        "slug": "cloud-computing",
+        "description": "Skills related to cloud computing.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Coding/programming",
+        "slug": "coding-programming",
+        "description": "Skills related to coding and programming.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Cybersecurity",
+        "slug": "cybersecurity",
+        "description": "Skills related to cybersecurity.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Digital marketing",
+        "slug": "digital-marketing",
+        "description": "Skills related to digital marketing.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Game development",
+        "slug": "game-development",
+        "description": "Skills related to game development.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Graphic design",
+        "slug": "graphic-design",
+        "description": "Skills related to graphic design.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "IT support",
+        "slug": "it-support",
+        "description": "Skills related to IT support.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Photography",
+        "slug": "photography",
+        "description": "Skills related to photography.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "UI/UX design",
+        "slug": "ui-ux-design",
+        "description": "Skills related to UI/UX design.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Video editing",
+        "slug": "video-editing",
+        "description": "Skills related to video editing.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Web development",
+        "slug": "web-development",
+        "description": "Skills related to web development.",
+        "parent": 78,
+        "sort_order": 1
+    },
+    {
+        "name": "Acting and theater arts",
+        "slug": "acting-and-theater-arts",
+        "description": "Skills related to acting and theater arts.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Calligraphy",
+        "slug": "calligraphy",
+        "description": "Skills related to calligraphy.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Drawing",
+        "slug": "drawing",
+        "description": "Skills related to drawing.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Fashion design",
+        "slug": "fashion-design",
+        "description": "Skills related to fashion design.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Film production",
+        "slug": "film-production",
+        "description": "Skills related to film production.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Interior design",
+        "slug": "interior-design",
+        "description": "Skills related to interior design.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Jewelry making",
+        "slug": "jewelry-making",
+        "description": "Skills related to jewelry making.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Makeup artistry",
+        "slug": "makeup-artistry",
+        "description": "Skills related to makeup artistry.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Music production",
+        "slug": "music-production",
+        "description": "Skills related to music production.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Painting",
+        "slug": "painting",
+        "description": "Skills related to painting.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Pottery",
+        "slug": "pottery",
+        "description": "Skills related to pottery.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Sculpting",
+        "slug": "sculpting",
+        "description": "Skills related to sculpting.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Woodworking",
+        "slug": "woodworking",
+        "description": "Skills related to woodworking.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Writing",
+        "slug": "writing",
+        "description": "Skills related to writing.",
+        "parent": 79,
+        "sort_order": 1
+    },
+    {
+        "name": "Accordion",
+        "slug": "accordion",
+        "description": "Skills related to the accordion.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Audio engineering",
+        "slug": "audio-engineering",
+        "description": "Skills related to audio engineering.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Banjo",
+        "slug": "banjo",
+        "description": "Skills related to the banjo.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Bass guitar",
+        "slug": "bass-guitar",
+        "description": "Skills related to the bass guitar.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Beat making",
+        "slug": "beat-making",
+        "description": "Skills related to beat making.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Cello",
+        "slug": "cello",
+        "description": "Skills related to the cello.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Choir singing",
+        "slug": "choir-singing",
+        "description": "Skills related to choir singing.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Clarinet",
+        "slug": "clarinet",
+        "description": "Skills related to the clarinet.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Conducting",
+        "slug": "conducting",
+        "description": "Skills related to conducting.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "DJing",
+        "slug": "djing",
+        "description": "Skills related to DJing.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Drums",
+        "slug": "drums",
+        "description": "Skills related to drums.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Flute",
+        "slug": "flute",
+        "description": "Skills related to the flute.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Guitar",
+        "slug": "guitar",
+        "description": "Skills related to the guitar.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Harp",
+        "slug": "harp",
+        "description": "Skills related to the harp.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Improvisation",
+        "slug": "improvisation",
+        "description": "Skills related to improvisation.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Mandolin",
+        "slug": "mandolin",
+        "description": "Skills related to the mandolin.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Music composition",
+        "slug": "music-composition",
+        "description": "Skills related to music composition.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Music history",
+        "slug": "music-history",
+        "description": "Skills related to music history.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Music theory",
+        "slug": "music-theory",
+        "description": "Skills related to music theory.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Oboe",
+        "slug": "oboe",
+        "description": "Skills related to the oboe.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Orchestration",
+        "slug": "orchestration",
+        "description": "Skills related to orchestration.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Piano",
+        "slug": "piano",
+        "description": "Skills related to the piano.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Saxophone",
+        "slug": "saxophone",
+        "description": "Skills related to the saxophone.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Sight reading",
+        "slug": "sight-reading",
+        "description": "Skills related to sight reading.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Singing/vocal training",
+        "slug": "singing-vocal-training",
+        "description": "Skills related to singing and vocal training.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Sitar",
+        "slug": "sitar",
+        "description": "Skills related to the sitar.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Tabla",
+        "slug": "tabla",
+        "description": "Skills related to the tabla.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Trombone",
+        "slug": "trombone",
+        "description": "Skills related to the trombone.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Trumpet",
+        "slug": "trumpet",
+        "description": "Skills related to the trumpet.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Violin",
+        "slug": "violin",
+        "description": "Skills related to the violin.",
+        "parent": 80,
+        "sort_order": 1
+    },
+    {
+        "name": "Chess",
+        "slug": "chess",
+        "description": "Skills related to chess.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Coding logic",
+        "slug": "coding-logic",
+        "description": "Skills related to coding logic.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Critical thinking",
+        "slug": "critical-thinking",
+        "description": "Skills related to critical thinking.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Economics",
+        "slug": "economics",
+        "description": "Skills related to economics.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "History",
+        "slug": "history",
+        "description": "Skills related to history.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Learning a new language",
+        "slug": "learning-a-new-language",
+        "description": "Skills related to learning a new language.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Mathematics",
+        "slug": "mathematics",
+        "description": "Skills related to mathematics.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Memory techniques",
+        "slug": "memory-techniques",
+        "description": "Skills related to memory techniques.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Philosophy",
+        "slug": "philosophy",
+        "description": "Skills related to philosophy.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Research and writing",
+        "slug": "research-and-writing",
+        "description": "Skills related to research and writing.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Science",
+        "slug": "science",
+        "description": "Skills related to science.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Speed reading",
+        "slug": "speed-reading",
+        "description": "Skills related to speed reading.",
+        "parent": 81,
+        "sort_order": 1
+    },
+    {
+        "name": "Breathwork",
+        "slug": "breathwork",
+        "description": "Skills related to breathwork.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Cold exposure",
+        "slug": "cold-exposure",
+        "description": "Skills related to cold exposure.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Fasting",
+        "slug": "fasting",
+        "description": "Skills related to fasting.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Fitness training",
+        "slug": "fitness-training",
+        "description": "Skills related to fitness training.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Herbalism",
+        "slug": "herbalism",
+        "description": "Skills related to herbalism.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Journaling",
+        "slug": "journaling",
+        "description": "Skills related to journaling.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Meditation",
+        "slug": "meditation",
+        "description": "Skills related to meditation.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Mindfulness practices",
+        "slug": "mindfulness-practices",
+        "description": "Skills related to mindfulness practices.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Natural medicine",
+        "slug": "natural-medicine",
+        "description": "Skills related to natural medicine.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Nutrition",
+        "slug": "nutrition",
+        "description": "Skills related to nutrition.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Stoicism",
+        "slug": "stoicism",
+        "description": "Skills related to Stoicism.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Therapy and self-discovery",
+        "slug": "therapy-and-self-discovery",
+        "description": "Skills related to therapy and self-discovery.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Yoga",
+        "slug": "yoga",
+        "description": "Skills related to yoga.",
+        "parent": 82,
+        "sort_order": 1
+    },
+    {
+        "name": "Climbing",
+        "slug": "climbing",
+        "description": "Skills related to climbing.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Dance",
+        "slug": "dance",
+        "description": "Skills related to dance.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Endurance training",
+        "slug": "endurance-training",
+        "description": "Skills related to endurance training.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Gymnastics",
+        "slug": "gymnastics",
+        "description": "Skills related to gymnastics.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Martial arts",
+        "slug": "martial-arts",
+        "description": "Skills related to martial arts.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Mobility/flexibility",
+        "slug": "mobility-flexibility",
+        "description": "Skills related to mobility and flexibility.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Parkour",
+        "slug": "parkour",
+        "description": "Skills related to parkour.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Strength training",
+        "slug": "strength-training",
+        "description": "Skills related to strength training.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Swimming",
+        "slug": "swimming",
+        "description": "Skills related to swimming.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Tactical training",
+        "slug": "tactical-training",
+        "description": "Skills related to tactical training.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Wilderness survival",
+        "slug": "wilderness-survival",
+        "description": "Skills related to wilderness survival.",
+        "parent": 83,
+        "sort_order": 1
+    },
+    {
+        "name": "Archery",
+        "slug": "archery",
+        "description": "Skills related to archery.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Bushcraft",
+        "slug": "bushcraft",
+        "description": "Skills related to bushcraft.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Camping",
+        "slug": "camping",
+        "description": "Skills related to camping.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Firearm training",
+        "slug": "firearm-training",
+        "description": "Skills related to firearm training.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "First aid / CPR",
+        "slug": "first-aid-cpr",
+        "description": "Skills related to first aid and CPR.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Fishing",
+        "slug": "fishing",
+        "description": "Skills related to fishing.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Hunting",
+        "slug": "hunting",
+        "description": "Skills related to hunting.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Knife skills",
+        "slug": "knife-skills",
+        "description": "Skills related to knife skills.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Navigation",
+        "slug": "navigation",
+        "description": "Skills related to navigation.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Tactical driving",
+        "slug": "tactical-driving",
+        "description": "Skills related to tactical driving.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Wilderness survival",
+        "slug": "wilderness-survival",
+        "description": "Skills related to wilderness survival.",
+        "parent": 84,
+        "sort_order": 1
+    },
+    {
+        "name": "Budgeting",
+        "slug": "budgeting",
+        "description": "Skills related to budgeting.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Building business credit",
+        "slug": "building-business-credit",
+        "description": "Skills related to building business credit.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Credit repair",
+        "slug": "credit-repair",
+        "description": "Skills related to credit repair.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "E-commerce",
+        "slug": "e-commerce",
+        "description": "Skills related to e-commerce.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Entrepreneurship",
+        "slug": "entrepreneurship",
+        "description": "Skills related to entrepreneurship.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Investing",
+        "slug": "investing",
+        "description": "Skills related to investing.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Negotiating large purchases",
+        "slug": "negotiating-large-purchases",
+        "description": "Skills related to negotiating large purchases.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Passive income creation",
+        "slug": "passive-income-creation",
+        "description": "Skills related to passive income creation.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Real estate investing",
+        "slug": "real-estate-investing",
+        "description": "Skills related to real estate investing.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Tax planning",
+        "slug": "tax-planning",
+        "description": "Skills related to tax planning.",
+        "parent": 85,
+        "sort_order": 1
+    },
+    {
+        "name": "Baking",
+        "slug": "baking",
+        "description": "Skills related to baking.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Barbecuing/smoking",
+        "slug": "barbecuing-smoking",
+        "description": "Skills related to barbecuing and smoking.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Butchery",
+        "slug": "butchery",
+        "description": "Skills related to butchery.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Coffee brewing",
+        "slug": "coffee-brewing",
+        "description": "Skills related to coffee brewing.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Cooking",
+        "slug": "cooking",
+        "description": "Skills related to cooking.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Fermenting",
+        "slug": "fermenting",
+        "description": "Skills related to fermenting.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Food preservation",
+        "slug": "food-preservation",
+        "description": "Skills related to food preservation.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Knife skills",
+        "slug": "knife-skills",
+        "description": "Skills related to knife skills.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Meal prepping",
+        "slug": "meal-prepping",
+        "description": "Skills related to meal prepping.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Mixology",
+        "slug": "mixology",
+        "description": "Skills related to mixology.",
+        "parent": 86,
+        "sort_order": 1
+    },
+    {
+        "name": "Flying",
+        "slug": "flying",
+        "description": "Skills related to flying.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Motorcycling",
+        "slug": "motorcycling",
+        "description": "Skills related to motorcycling.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Mountaineering",
+        "slug": "mountaineering",
+        "description": "Skills related to mountaineering.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Off-roading",
+        "slug": "off-roading",
+        "description": "Skills related to off-roading.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Sailing",
+        "slug": "sailing",
+        "description": "Skills related to sailing.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Scuba diving",
+        "slug": "scuba-diving",
+        "description": "Skills related to scuba diving.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Skydiving",
+        "slug": "skydiving",
+        "description": "Skills related to skydiving.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Snowboarding/skiing",
+        "slug": "snowboarding-skiing",
+        "description": "Skills related to snowboarding and skiing.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Traveling smartly",
+        "slug": "traveling-smartly",
+        "description": "Skills related to traveling smartly.",
+        "parent": 87,
+        "sort_order": 1
+    },
+    {
+        "name": "Building community",
+        "slug": "building-community",
+        "description": "Skills related to building community.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Communication",
+        "slug": "communication",
+        "description": "Skills related to communication.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Conflict resolution",
+        "slug": "conflict-resolution",
+        "description": "Skills related to conflict resolution.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Dating/attraction",
+        "slug": "dating-attraction",
+        "description": "Skills related to dating and attraction.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Emotional intelligence",
+        "slug": "emotional-intelligence",
+        "description": "Skills related to emotional intelligence.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Listening skills",
+        "slug": "listening-skills",
+        "description": "Skills related to listening skills.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Marriage skills",
+        "slug": "marriage-skills",
+        "description": "Skills related to marriage skills.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Mentorship",
+        "slug": "mentorship",
+        "description": "Skills related to mentorship.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Parenting",
+        "slug": "parenting",
+        "description": "Skills related to parenting.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "Setting boundaries",
+        "slug": "setting-boundaries",
+        "description": "Skills related to setting boundaries.",
+        "parent": 88,
+        "sort_order": 1
+    },
+    {
+        "name": "American football",
+        "slug": "american-football",
+        "description": "Skills related to American football.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Archery",
+        "slug": "archery",
+        "description": "Skills related to archery.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Baseball",
+        "slug": "baseball",
+        "description": "Skills related to baseball.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Basketball",
+        "slug": "basketball",
+        "description": "Skills related to basketball.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Biathlon",
+        "slug": "biathlon",
+        "description": "Skills related to biathlon.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Bodybuilding",
+        "slug": "bodybuilding",
+        "description": "Skills related to bodybuilding.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Bowling",
+        "slug": "bowling",
+        "description": "Skills related to bowling.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Boxing",
+        "slug": "boxing",
+        "description": "Skills related to boxing.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Cheerleading",
+        "slug": "cheerleading",
+        "description": "Skills related to cheerleading.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Cricket",
+        "slug": "cricket",
+        "description": "Skills related to cricket.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Badminton",
+        "slug": "badminton",
+        "description": "Skills related to badminton.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "CrossFit",
+        "slug": "crossfit",
+        "description": "Skills related to CrossFit.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Cycling",
+        "slug": "cycling",
+        "description": "Skills related to cycling.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Darts",
+        "slug": "darts",
+        "description": "Skills related to darts.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Disc golf",
+        "slug": "disc-golf",
+        "description": "Skills related to disc golf.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Dodgeball",
+        "slug": "dodgeball",
+        "description": "Skills related to dodgeball.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Equestrian sports",
+        "slug": "equestrian-sports",
+        "description": "Skills related to equestrian sports.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Esports",
+        "slug": "esports",
+        "description": "Skills related to esports.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Fencing",
+        "slug": "fencing",
+        "description": "Skills related to fencing.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Golf",
+        "slug": "golf",
+        "description": "Skills related to golf.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Gymnastics",
+        "slug": "gymnastics",
+        "description": "Skills related to gymnastics.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Handball",
+        "slug": "handball",
+        "description": "Skills related to handball.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Hockey (ice/field)",
+        "slug": "hockey-ice-field",
+        "description": "Skills related to hockey (ice/field).",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Judo",
+        "slug": "judo",
+        "description": "Skills related to judo.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Karate",
+        "slug": "karate",
+        "description": "Skills related to karate.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Lacrosse",
+        "slug": "lacrosse",
+        "description": "Skills related to lacrosse.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Mixed martial arts",
+        "slug": "mixed-martial-arts",
+        "description": "Skills related to mixed martial arts.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Motorsports",
+        "slug": "motorsports",
+        "description": "Skills related to motorsports.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Paintball",
+        "slug": "paintball",
+        "description": "Skills related to paintball.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Pickleball",
+        "slug": "pickleball",
+        "description": "Skills related to pickleball.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Powerlifting",
+        "slug": "powerlifting",
+        "description": "Skills related to powerlifting.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Rock climbing",
+        "slug": "rock-climbing",
+        "description": "Skills related to rock climbing.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Rowing",
+        "slug": "rowing",
+        "description": "Skills related to rowing.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Rugby",
+        "slug": "rugby",
+        "description": "Skills related to rugby.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Skateboarding",
+        "slug": "skateboarding",
+        "description": "Skills related to skateboarding.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Skiing",
+        "slug": "skiing",
+        "description": "Skills related to skiing.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Snowboarding",
+        "slug": "snowboarding",
+        "description": "Skills related to snowboarding.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Soccer",
+        "slug": "soccer",
+        "description": "Skills related to soccer.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Strongman",
+        "slug": "strongman",
+        "description": "Skills related to strongman.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Sumo wrestling",
+        "slug": "sumo-wrestling",
+        "description": "Skills related to sumo wrestling.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Surfing",
+        "slug": "surfing",
+        "description": "Skills related to surfing.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Swimming",
+        "slug": "swimming",
+        "description": "Skills related to swimming.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Table tennis",
+        "slug": "table-tennis",
+        "description": "Skills related to table tennis.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Taekwondo",
+        "slug": "taekwondo",
+        "description": "Skills related to taekwondo.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Tennis",
+        "slug": "tennis",
+        "description": "Skills related to tennis.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Track and field",
+        "slug": "track-and-field",
+        "description": "Skills related to track and field.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Triathlon",
+        "slug": "triathlon",
+        "description": "Skills related to triathlon.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Ultimate Frisbee",
+        "slug": "ultimate-frisbee",
+        "description": "Skills related to Ultimate Frisbee.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Volleyball",
+        "slug": "volleyball",
+        "description": "Skills related to volleyball.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Wrestling",
+        "slug": "wrestling",
+        "description": "Skills related to wrestling.",
+        "parent": 89,
+        "sort_order": 1
+    },
+    {
+        "name": "Balance and stability",
+        "slug": "balance-and-stability",
+        "description": "Skills related to balance and stability.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Body composition assessment",
+        "slug": "body-composition-assessment",
+        "description": "Skills related to body composition assessment.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Bodybuilding coaching",
+        "slug": "bodybuilding-coaching",
+        "description": "Skills related to bodybuilding coaching.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Bootcamp design",
+        "slug": "bootcamp-design",
+        "description": "Skills related to bootcamp design.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Circuit training",
+        "slug": "circuit-training",
+        "description": "Skills related to circuit training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Core strengthening",
+        "slug": "core-strengthening",
+        "description": "Skills related to core strengthening.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Custom program design",
+        "slug": "custom-program-design",
+        "description": "Skills related to custom program design.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Endurance training",
+        "slug": "endurance-training",
+        "description": "Skills related to endurance training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Fitness assessments and testing",
+        "slug": "fitness-assessments-and-testing",
+        "description": "Skills related to fitness assessments and testing.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Functional fitness",
+        "slug": "functional-fitness",
+        "description": "Skills related to functional fitness.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Group fitness instruction",
+        "slug": "group-fitness-instruction",
+        "description": "Skills related to group fitness instruction.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "HIIT programming",
+        "slug": "hiit-programming",
+        "description": "Skills related to HIIT programming.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Injury prevention",
+        "slug": "injury-prevention",
+        "description": "Skills related to injury prevention.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Interval training",
+        "slug": "interval-training",
+        "description": "Skills related to interval training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Kettlebell training",
+        "slug": "kettlebell-training",
+        "description": "Skills related to kettlebell training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Mobility and flexibility",
+        "slug": "mobility-and-flexibility",
+        "description": "Skills related to mobility and flexibility.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Motivational support and goal setting",
+        "slug": "motivational-support-and-goal-setting",
+        "description": "Skills related to motivational support and goal setting.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Nutritional coaching",
+        "slug": "nutritional-coaching",
+        "description": "Skills related to nutritional coaching.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Olympic lifting technique",
+        "slug": "olympic-lifting-technique",
+        "description": "Skills related to Olympic lifting technique.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Online fitness coaching",
+        "slug": "online-fitness-coaching",
+        "description": "Skills related to online fitness coaching.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Plyometric training",
+        "slug": "plyometric-training",
+        "description": "Skills related to plyometric training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Posture correction",
+        "slug": "posture-correction",
+        "description": "Skills related to posture correction.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Powerlifting coaching",
+        "slug": "powerlifting-coaching",
+        "description": "Skills related to powerlifting coaching.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Prenatal and postnatal fitness",
+        "slug": "prenatal-and-postnatal-fitness",
+        "description": "Skills related to prenatal and postnatal fitness.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Rehabilitation exercise",
+        "slug": "rehabilitation-exercise",
+        "description": "Skills related to rehabilitation exercise.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Senior fitness",
+        "slug": "senior-fitness",
+        "description": "Skills related to senior fitness.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Speed and agility training",
+        "slug": "speed-and-agility-training",
+        "description": "Skills related to speed and agility training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Sports-specific conditioning",
+        "slug": "sports-specific-conditioning",
+        "description": "Skills related to sports-specific conditioning.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Strength training",
+        "slug": "strength-training",
+        "description": "Skills related to strength training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Stretching routines",
+        "slug": "stretching-routines",
+        "description": "Skills related to stretching routines.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "TRX and suspension training",
+        "slug": "trx-and-suspension-training",
+        "description": "Skills related to TRX and suspension training.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Warm-up and cooldown protocols",
+        "slug": "warm-up-and-cooldown-protocols",
+        "description": "Skills related to warm-up and cooldown protocols.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Weight loss programming",
+        "slug": "weight-loss-programming",
+        "description": "Skills related to weight loss programming.",
+        "parent": 60,
+        "sort_order": 1
+    },
+    {
+        "name": "Youth athletic development",
+        "slug": "youth-athletic-development",
+        "description": "Skills related to youth athletic development.",
+        "parent": 60,
+        "sort_order": 1
+    }
+]
