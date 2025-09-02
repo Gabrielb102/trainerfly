@@ -175,9 +175,9 @@ class ListingController
                 t.term_id,
                 t.name,
                 t.slug,
-                ANY_VALUE(tt.description) as description,
-                ANY_VALUE(tt.parent) as parent,
-                ANY_VALUE(icon_meta.meta_value) as icon,
+                tt.description as description,
+                tt.parent as parent,
+                icon_meta.meta_value as icon,
                 COUNT(DISTINCT p.ID) as listing_count,
                 MAX(CASE WHEN child_tt.term_taxonomy_id IS NOT NULL THEN 1 ELSE 0 END) as has_children,
                 COALESCE(grandparent_tt.parent, 0) as grandparent
@@ -232,6 +232,8 @@ class ListingController
         }
 
         $sql .= " GROUP BY t.term_id ORDER BY listing_count DESC, RAND()";
+
+        error_log("SQL: $sql");
 
         // Execute the query
         $results = $wpdb->get_results($wpdb->prepare($sql, $params));
