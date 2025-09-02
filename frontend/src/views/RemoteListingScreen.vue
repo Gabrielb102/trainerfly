@@ -32,7 +32,7 @@ watch(listings, loadWatcherCallback)
         </Header>
         <div class="flex w-full h-full gap-0 justify-center items-start">
             <RemoteSideMenu :onGoBack="startLoading" />
-            <div class="w-full h-full flex justify-center items-start bg-gray-200">
+            <div class="w-full h-full flex justify-center items-start bg-gray-200 overflow-y-auto">
                 <RemoteScreenLoadingVisual v-if="loading" :isListings="displayListings" />
                 <TransitionGroup v-else tag="div" appear
                     :class="['md:w-[600px] lg:w-[800px] xl:w-[1000px] h-fit grid justify-center items-start md:p-4 lg:px-10 lg:py-6', { 'md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4': !displayListings, 'md:grid-cols-2 lg:grid-cols-3 gap-4': displayListings }]"
