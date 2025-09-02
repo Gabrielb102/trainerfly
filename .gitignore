@@ -1,7 +1,11 @@
+# Bundle
+build/
+
 # JetBrains IDEs
 .idea/
 *.iml
 
+# Nuxt config
 .nuxt
 
 # Node modules
