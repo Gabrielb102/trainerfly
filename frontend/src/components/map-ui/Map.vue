@@ -104,7 +104,7 @@ watch(() => listings.value, (newListings) => {
 <template>
   <div class="relative w-full h-full">
     <FreeDrawer ref="drawerRef" direction="left" :showToggleButton="false" :initiallyOpen="false">
-      <SideMenu />
+      <MapSideMenu />
     </FreeDrawer>
 
     <!-- Vendor Drawer Component -->

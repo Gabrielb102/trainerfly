@@ -2,7 +2,7 @@
 import { onMounted, watch } from 'vue'
 import { useSideMenu } from '@/composables/useSideMenu'
 import { useLoading } from '@/composables/useLoading'
-import SideMenuLoadingVisual from './SideMenuLoadingVisual.vue'
+import SideMenuLoadingVisual from '@/components/loading-ui/SideMenuLoadingVisual.vue'
 import { onBeforeEnter, onEnter } from '@/helpers/animation'
 
 // Made into a composable so that Child components, as well as the map, can use the same composable
