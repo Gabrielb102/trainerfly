@@ -47,7 +47,7 @@ const goToRemote = () => {
 
 <template>
   <!--Goes within the Header component slot -->
-  <div class="flex flex-col gap-2 justify-end h-full items-center">
+  <div class="flex flex-col gap-2 justify-center h-full items-center">
     <div class="flex gap-2 justify-center items-center relative">
       <label for="location-search-field" class="uppercase font-extrabold">Location: </label>
       <div class="relative w-64">
@@ -76,9 +76,10 @@ const goToRemote = () => {
       <UButton label="Search for Remote" variant="outline"
                color="primary" @click="goToRemote" />
     </div>
-    <div class="flex gap-2 justify-center items-center">
+    <!-- The Learn/Share switchwill be removed for now. -->
+    <!-- <div class="flex gap-2 justify-center items-center">
       <span class="uppercase font-bold">Let's:</span>
       <ModeSwitch labelOne="Learn" labelTwo="Share" />
-    </div>
+    </div> -->
   </div>
 </template>
