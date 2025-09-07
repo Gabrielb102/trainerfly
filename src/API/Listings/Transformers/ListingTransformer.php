@@ -19,7 +19,7 @@ class ListingTransformer implements TransformerInterface
 
         return [
             'id' => $listing->get_id(),
-            'title' => $listing->get_title(),
+            'title' => html_entity_decode((string) $listing->get_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8'),
             'url' => get_permalink($listing->get_id()),
             'latitude' => $listing->get_latitude(),
             'longitude' => $listing->get_longitude(),

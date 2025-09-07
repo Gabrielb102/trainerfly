@@ -23,7 +23,7 @@ class CategoryTransformer implements TransformerInterface
 
         return [
             'id' => (int)$category->term_id,
-            'name' => $category->name,
+            'name' => html_entity_decode((string) $category->name, ENT_QUOTES | ENT_HTML5, 'UTF-8'),
             'description' => $category->description,
             'slug' => $category->slug,
             'parent' => (int)$category->parent,
