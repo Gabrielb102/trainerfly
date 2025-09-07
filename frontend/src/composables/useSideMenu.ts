@@ -32,12 +32,13 @@ export function useSideMenu() {
         listingStore.display = false
     }
 
-    const { getCategories, getListings } = useListings()
+    const { getCategories, removeMarkersFromMap } = useListings()
 
     const goBack = () => {
 
         listingStore.listings = []
         listingStore.categories = []
+        removeMarkersFromMap()
         
         // If listings are displayed, hide them, and navigate to the parent category
         if (listingStore.display) {

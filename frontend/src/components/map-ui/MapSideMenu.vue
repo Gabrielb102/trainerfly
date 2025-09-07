@@ -30,7 +30,7 @@ watch(listings, loadWatcherCallback)
       <hr>
       <span class="w-full text-center text-sm uppercase font-bold">Results</span>
       <SideMenuLoadingVisual v-if="loading" :listing="displayListings" />
-      <div v-else class="overflow-y-scroll h-full -mx-4 px-4">
+      <div v-else class="overflow-y-scroll h-full -mx-4 px-4 pt-1">
         <TransitionGroup tag="div" appear @before-enter="onBeforeEnter" @enter="onEnter"
         :class="{ 'grid grid-cols-2 gap-4': !displayListings, 'flex flex-col gap-4': displayListings }">
           <CategoryCard v-for="(c, i) in categories" :key="c.id" :data-index="i" :category="c" @selectCategory="startLoading" />
