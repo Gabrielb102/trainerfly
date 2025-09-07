@@ -6,7 +6,7 @@ import SideMenuLoadingVisual from '@/components/loading-ui/SideMenuLoadingVisual
 import { onBeforeEnter, onEnter } from '@/helpers/animation'
 
 // Made into a composable so that Child components, as well as the map, can use the same composable
-const { goBack, displayListings, categories, listings, selectedCategory, searchQuery, clearAll } = useSideMenu()
+const { goBack, displayListings, categories, listings, selectedCategory, searchQuery, search } = useSideMenu()
 const { loading, startLoading, loadWatcherCallback } = useLoading()
 
 // Loading Triggers
@@ -17,14 +17,14 @@ watch(listings, loadWatcherCallback)
 
 <template>
   <div class="flex flex-col w-full h-full gap-2 items-center">
-    <div class="h-fit w-full text-center transition-all duration-300">
+    <div class="h-fit w-full px-4 text-center transition-all duration-300">
       <UButton v-if="selectedCategory && selectedCategory.id !== 0" icon="fa6-solid:arrow-left"
         label="go back" variant="outline" color="primary" class="w-full" @click="goBack" />
       <span v-else class="uppercase font-bold">What do I want to learn?</span>
     </div>
     <div class="flex flex-col w-full gap-2 px-4">
       <UInput variant="soft" color="neutral" class="w-full flex-none" v-model="searchQuery" />
-      <UButton color="primary" label="Search" class="w-full flex-none" />
+      <UButton color="primary" label="Search" class="w-full flex-none" @click="search" />
     </div>
     <div class="flex flex-col grow gap-2 w-full h-full overflow-y-hidden px-4">
       <hr>

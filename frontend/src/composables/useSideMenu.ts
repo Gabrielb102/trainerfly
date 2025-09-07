@@ -11,16 +11,19 @@ export function useSideMenu() {
     const mapStore = useMapStore()
     const location = computed((): MapboxFeature => mapStore.location)
 
-    // Listings
+    // #region Listings -----------------------------------------------------------------
+
     const listingStore = useListingStore()
     const selectedCategory = computed((): Category | null => listingStore.selectedCategory)
     const categories = computed((): Array<Category> => listingStore.categories)
     const listings = computed((): Array<Listing> => listingStore.listings)
     const displayListings = computed((): boolean => listingStore.display)
 
+    // #endregion -----------------------------------------------------------------------
+
     const searchQuery = ref<string>("")
 
-    // Functions
+    // #region Functions -----------------------------------------------------------------
 
     const clearAll = () => {
         mapStore.resetLocation()
@@ -29,7 +32,7 @@ export function useSideMenu() {
         listingStore.display = false
     }
 
-    const { getCategories } = useListings()
+    const { getCategories, getListings } = useListings()
 
     const goBack = () => {
 
@@ -60,6 +63,26 @@ export function useSideMenu() {
         listingStore.display = false
     }
 
+    // #endregion -----------------------------------------------------------------------
+
+    let searchTimeout: NodeJS.Timeout | null = null // In browser, this is a number, in node it is a Node.js Timeout object
+    const searchDelay = 500
+
+    const search = () => {
+        getCategories(location.value, searchQuery.value, selectedCategory.value?.parent)
+    }
+
+    watch(searchQuery, (newValue: string) => {
+        if (searchTimeout) clearTimeout(searchTimeout)
+    
+        searchTimeout = setTimeout(async () => {
+          try {
+            await search()
+          } catch (error) {
+            console.error('Error searching categories:', error)
+          }
+        }, searchDelay)
+      })
 
     return {
         goBack,
@@ -70,6 +93,7 @@ export function useSideMenu() {
         displayListings,
         showListings,
         hideListings,
-        clearAll
+        clearAll,
+        search
     }
 }

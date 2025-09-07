@@ -29,7 +29,7 @@ export function useMapSearch(suggestDelay: number = 500) {
   const suggestions = ref<Array<SearchTypes>>([])
   const selectedSuggestion = ref({})
 
-  // <editor-fold desc="Functions">------------------------------------------
+  // #region Functions -----------------------------------------------------------------
 
   // Gets a certain type of Search Suggestion from api
   const getSuggestions = async (query: string, limit: number = 3, types: Array<string> = ['postcode', 'district', 'place', 'city', 'locality', 'neighborhood', 'address', 'poi']): Promise<Array<SearchTypes>> => {
@@ -61,11 +61,9 @@ export function useMapSearch(suggestDelay: number = 500) {
   // Gets all suggestions for the current query
   const suggest = async (query: string): Promise<Array<SearchTypes>> => {
 
-    // Get multiple types of suggestions
     const broadSuggestions = await getSuggestions(query, 3, ['city', 'locality', 'neighborhood', 'district'])
     const specificSuggestions = await getSuggestions(query, 3, ['address', 'poi'])
 
-    // Combine the suggestions
     let suggestions: Array<SearchTypes> = [...broadSuggestions, ...specificSuggestions]
 
     /* Remove duplicates
@@ -73,7 +71,6 @@ export function useMapSearch(suggestDelay: number = 500) {
      * The objects are then matched to their ids
      */
 
-    // Create a set of unique mapbox_ids
     const uniqueIds = Array.from(new Set(suggestions.map((s: SearchTypes) => s.mapbox_id)))
 
     // Map each id to its corresponding suggestion, filtering out any undefined values
@@ -90,7 +87,7 @@ export function useMapSearch(suggestDelay: number = 500) {
     return suggestions
   }
 
-  // </editor-fold>-----------------------------------------------------------
+  // #endregion -----------------------------------------------------------------------
 
   let searchTimeout: NodeJS.Timeout | null = null // In browser, this is a number, in node it is a Node.js Timeout object
 
