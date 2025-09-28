@@ -3,6 +3,7 @@ type LocalizedData = {
   baseWebURL: string;
   nonce: string;
   mapboxAPIKey: string;
+  mobileHomeURLSuffix: string;
 };
 
 declare global {
