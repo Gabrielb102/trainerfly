@@ -23,7 +23,8 @@ class ScriptLoader
                 'baseAPIURL' => rest_url('trainerfly/v1/'),
                 'baseWebURL' => home_url(),
                 'nonce' => wp_create_nonce('wp_rest'),
-                'mapboxAPIKey' => 'pk.eyJ1Ijoid2F4ZWQtbGVvcGFyZHMiLCJhIjoiY205eG9hZGJ6MHMyYjJqcHBsYmtlcjZhNSJ9.38V_X1HWjTriDm7CJC2yOA'
+                'mapboxAPIKey' => get_option('mapbox_api_key'),
+                'mobileHomeURLSuffix' => get_option('mobile_home_url_suffix')
             ));
             
             // Force type="module" attribute

@@ -73,7 +73,7 @@ const goToRemote = () => {
         </div>
       </div>
       <UButton label="Search" @click="search" />
-      <UButton label="Search for Remote" variant="outline"
+      <UButton label="Search for Online" variant="outline"
                color="primary" @click="goToRemote" />
     </div>
     <!-- The Learn/Share switchwill be removed for now. -->
