@@ -3,15 +3,6 @@ import Map from '@/components/map-ui/Map.vue'
 import MapSearch from '@/components/map-ui/MapSearch.vue'
 import Header from "@/components/Header.vue";
 
-const {mobileHomeURLSuffix} = localized
-
-const navigateToHPHome = () => {
-  const baseURL = window.location.origin;
-  const url = `${baseURL}/${mobileHomeURLSuffix}`;
-
-  window.location.href = url;
-};
-
 </script>
 
 <template>
